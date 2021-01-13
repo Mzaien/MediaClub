@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `النادي الإعلامي`,
+    description: `موقع النادي الإعلامي في جامعة الملك فهد للبترول والمعادن.`,
+    author: `@MediaKfupm`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -13,8 +13,20 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: "gatsby-source-prismic",
+      options: {
+        repositoryName: "mediawebsite",
+        accessToken:
+          "MC5YXzM5SkJBQUFDTUEycXhv.77-9Ku-_ve-_vRbvv71c77-9De-_vRI377-977-9JO-_vUEpdnDvv73vv71f77-977-9RO-_ve-_vTrvv73vv73vv70",
+        schemas: {
+          segelat_podcast: require("./src/schemas/segelat_podcast.json"),
+        },
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `@chakra-ui/gatsby-plugin`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
