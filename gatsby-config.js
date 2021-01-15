@@ -14,6 +14,21 @@ module.exports = {
       },
     },
     {
+      resolve: `@chakra-ui/gatsby-plugin`,
+      options: {
+        /**
+         * @property {boolean} [isResettingCSS=true]
+         * if false, this plugin will not use `<CSSReset />
+         */
+        isResettingCSS: true,
+        /**
+         * @property {boolean} [isUsingColorMode=true]
+         * if false, this plugin will not use <ColorModeProvider />
+         */
+        isUsingColorMode: true,
+      },
+    },
+    {
       resolve: "gatsby-source-prismic",
       options: {
         repositoryName: "mediawebsite",
@@ -26,7 +41,6 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    `@chakra-ui/gatsby-plugin`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
