@@ -6,6 +6,8 @@
  */
 
 import React from "react"
+import { Container } from "@chakra-ui/react"
+import { useTheme } from "@chakra-ui/react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
@@ -22,13 +24,16 @@ const Layout = ({ children }) => {
     }
   `)
 
+  const theme = useTheme()
+  console.log("theme", theme)
+
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <div>
-        <main>{children}</main>
-        <footer></footer>
-      </div>
+      <Header siteTitle={data.site.siteMetadata?.title || `عنوان الصفحة`} />
+      <main>
+        <Container maxW="lg">{children}</Container>
+      </main>
+      <footer></footer>
     </>
   )
 }
