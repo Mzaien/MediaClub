@@ -16,6 +16,7 @@ const IndexPage = () => (
     <SEO title="الصفحة الرئيسة" />
     <StyledShowcase>
       <Heading as="h1">مرحباً بكم في النادي الإعلامي</Heading>
+      <Link to="/page-2">الصفحة الثانية</Link>
     </StyledShowcase>
   </Layout>
 )
