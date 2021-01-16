@@ -31,11 +31,9 @@ module.exports = {
     {
       resolve: "gatsby-source-prismic",
       options: {
-        repositoryName: "mediawebsite",
-        accessToken:
-          "MC5YXzM5SkJBQUFDTUEycXhv.77-9Ku-_ve-_vRbvv71c77-9De-_vRI377-977-9JO-_vUEpdnDvv73vv71f77-977-9RO-_ve-_vTrvv73vv73vv70",
+        repositoryName: "mediaclub",
         schemas: {
-          segelat_podcast: require("./src/schemas/segelat_podcast.json"),
+          segilat_podcast: require("./src/schemas/segilat_podcast.json"),
         },
       },
     },
