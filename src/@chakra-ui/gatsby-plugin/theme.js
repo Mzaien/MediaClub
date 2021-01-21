@@ -1,12 +1,9 @@
 import { extendTheme } from "@chakra-ui/react"
 
-const container = {
-  lg: "72rem",
-}
-
 const theme = extendTheme({
   direction: "rtl",
   sizes: {
+    md: "62rem",
     lg: "92rem",
   },
 })

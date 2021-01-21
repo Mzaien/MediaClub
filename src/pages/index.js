@@ -1,24 +1,25 @@
 import React from "react"
-import styled from "@emotion/styled"
 import { Link } from "gatsby"
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
-import { Heading } from "@chakra-ui/react"
+import { Button, Container, SimpleGrid, Text } from "@chakra-ui/react"
+import homePageLinks from "../misc/home-page-links"
 
-const StyledShowcase = styled.section`
-  background-color: #f3f3f3;
-  height: 32rem;
-`
-
-const IndexPage = () => (
-  <Layout>
-    <SEO title="الصفحة الرئيسة" />
-    <StyledShowcase>
-      <Heading as="h1">مرحباً بكم في النادي الإعلامي</Heading>
-      <Link to="/page-2">الصفحة الثانية</Link>
-    </StyledShowcase>
-  </Layout>
-)
+const IndexPage = () => {
+  return (
+    <Layout>
+      <SEO title="الصفحة الرئيسية" />
+      <Container maxW="md">
+        <SimpleGrid columns={[1, null, 2]} spacing={10} maxW="45rem" mx="auto">
+          {homePageLinks.map((item, index) => (
+            <Button h="10rem" as={Link} to={item.dest} key={item.name + index}>
+              <Text fontSize="xl">{item.name}</Text>
+            </Button>
+          ))}
+        </SimpleGrid>
+      </Container>
+    </Layout>
+  )
+}
 
 export default IndexPage
