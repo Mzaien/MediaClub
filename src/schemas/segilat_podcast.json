@@ -1,11 +1,5 @@
 {
   "Main": {
-    "uid": {
-      "type": "UID",
-      "config": {
-        "label": "معرف"
-      }
-    },
     "title": {
       "type": "StructuredText",
       "config": {
@@ -13,11 +7,36 @@
         "label": "العنوان"
       }
     },
+    "main_image": {
+      "type": "Image",
+      "config": {
+        "constraint": {
+          "width": 900,
+          "height": 900
+        },
+        "thumbnails": [],
+        "label": "الصورة الرئيسية"
+      }
+    },
     "content": {
       "type": "StructuredText",
       "config": {
         "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
         "label": "المحتوى"
+      }
+    },
+    "label": {
+      "type": "Select",
+      "config": {
+        "options": ["ملفات أكاديمية", "بينيات", "تجربة"],
+        "label": "التصنيف",
+        "placeholder": "تصنيف بودكاست سجلات"
+      }
+    },
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "معرف"
       }
     }
   }
