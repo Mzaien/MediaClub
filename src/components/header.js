@@ -34,9 +34,9 @@ const Header = ({ siteTitle }) => {
     <header>
       <nav>
         <Container maxW="lg">
-          <List d="flex" justifyContent="center">
+          <List d="flex" justifyContent="space-evenly">
             {navLinks.map((item, index) => (
-              <ListItem padding={3} key={item.name + index}>
+              <ListItem paddingX={[1, 2, 3]} key={item.name + index}>
                 <Button
                   as={Link}
                   to={item.dest}
