@@ -33,10 +33,10 @@ const Header = ({ siteTitle }) => {
   return (
     <header>
       <nav>
-        <Container maxW={["sm", "lg"]}>
-          <List d="flex" justifyContent="space-evenly">
+        <Container maxW={["sm", "md", "lg"]}>
+          <List d="flex" justifyContent="space-between">
             {navLinks.map((item, index) => (
-              <ListItem marginX={[2, 3]}  key={item.name + index}>
+              <ListItem key={item.name + index}>
                 <Button
                   as={Link}
                   to={item.dest}
