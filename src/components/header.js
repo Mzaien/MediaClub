@@ -34,7 +34,7 @@ const Header = ({ siteTitle }) => {
     <header>
       <nav>
         <Container maxW={["sm", "md", "lg"]}>
-          <List d="flex" justifyContent="space-between">
+          <List d="flex" justifyContent="space-evenly">
             {navLinks.map((item, index) => (
               <ListItem key={item.name + index}>
                 <Button
@@ -58,9 +58,9 @@ const Header = ({ siteTitle }) => {
         textAlign="center"
         width="max-content"
         mx="auto"
-        mb={10}
+        mb={[5, 10]}
       >
-        <Box boxSize={["15em", "sm"]} margin="0 auto">
+        <Box boxSize={[null, null, "xs", "sm"]} margin="0 auto">
           <Img fluid={fluid} alt="شعار النادي الإعلامي" />
         </Box>
         <Heading as="h1" mt="1">
