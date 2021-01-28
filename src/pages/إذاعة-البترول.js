@@ -3,8 +3,13 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { Link } from "gatsby"
 import { Button, Container, SimpleGrid, Text } from "@chakra-ui/react"
+import secondaryNavLinks, {
+  secondarySubLinkPrefix,
+} from "../misc/secondary-navigation-links"
 
-const pageUrls = ["سجلات", "بترولي", "ساندويتش", "قصيد-الفهد", "هنيهة", "قرآن"]
+const pageUrls = secondaryNavLinks.filter(
+  item => item.name === "إذاعة البترول"
+)[0].subLinks
 
 const PetrolPodcast = () => {
   return (
@@ -17,9 +22,14 @@ const PetrolPodcast = () => {
           maxW="45rem"
           mx="auto"
         >
-          {pageUrls.map((url, index) => (
-            <Button h="5rem" as={Link} to={`/podcast/${url}`} key={url + index}>
-              <Text fontSize="xl">{url.split("-").join(" ")}</Text>
+          {pageUrls.map((link, index) => (
+            <Button
+              h="5rem"
+              as={Link}
+              to={`${secondarySubLinkPrefix}/${link.dest}`}
+              key={link.name + index}
+            >
+              <Text fontSize="xl">{link.name}</Text>
             </Button>
           ))}
         </SimpleGrid>

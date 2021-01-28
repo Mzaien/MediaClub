@@ -1,9 +1,5 @@
 const links = [
   {
-    name: "الرئيسية",
-    dest: "/",
-  },
-  {
     name: "عن النادي",
     dest: "/about",
   },
