@@ -1,37 +1,47 @@
 import React from "react"
-import { useStaticQuery, graphql, Link } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 import Layout from "../../components/layout"
 import SEO from "../../components/seo"
-import { Container, Button, SimpleGrid, Text } from "@chakra-ui/react"
+import PostCard from "../../components/post-card"
 
 const PetrolPodcast = () => {
   const data = useStaticQuery(graphql`
     {
-      labels: allPrismicSegilatPodcast {
-        distinct(field: data___label)
+      postsQuery: allPrismicSegilatPodcast(
+        sort: { fields: first_publication_date, order: DESC }
+      ) {
+        nodes {
+          data {
+            main_image {
+              fluid(maxWidth: 900) {
+                ...GatsbyPrismicImageFluid
+              }
+              alt
+            }
+            content {
+              text
+            }
+            title {
+              text
+            }
+            label
+          }
+          first_publication_date(formatString: "DD MMM, YYYY", locale: "ar")
+          id
+          uid
+        }
       }
     }
   `)
 
-  const { distinct: labels } = data.labels
+  const { nodes: posts } = data.postsQuery
 
   return (
     <Layout>
       <SEO title="بودكاست سجلات" />
-      <Container maxW="md">
-        <SimpleGrid columns={[2]} spacing={[4, null, 8]} maxW="45rem" mx="auto">
-          {labels?.map(label => (
-            <Button
-              h="5rem"
-              as={Link}
-              to={`${label.split(" ").join("-")}`}
-              key={label}
-            >
-              <Text fontSize="xl">{label}</Text>
-            </Button>
-          ))}
-        </SimpleGrid>
-      </Container>
+      {posts.map(post => (
+        <PostCard key={post.id} post={post} />
+      ))}
     </Layout>
   )
 }

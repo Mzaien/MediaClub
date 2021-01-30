@@ -40,7 +40,7 @@ const Navbar = ({ fluid }) => {
       <nav>
         <Container {...navContainerStyles}>
           <List d="flex" alignItems="center">
-            <ListItem ml={5}>
+            <ListItem ml={5} key="home-page-1">
               <Link aria-label="الصفحة الرئيسية" to="/">
                 <Box boxSize="sm" w="3rem" h="3rem">
                   <Img fluid={fluid} alt="شعار النادي الإعلامي" />
@@ -65,7 +65,7 @@ const Navbar = ({ fluid }) => {
                   </Box>
                 </ListItem>
               ))}
-            <ListItem mr="auto">
+            <ListItem mr="auto" key="search-website-2">
               <IconButton
                 aria-label="ابحث في الموقع"
                 icon={<SearchIcon color="black" fontSize="2xl" />}
@@ -73,7 +73,7 @@ const Navbar = ({ fluid }) => {
                 size="sm"
               />
             </ListItem>
-            <ListItem mr={3}>
+            <ListItem mr={3} key="open-drawer-3">
               <IconButton
                 aria-label="افتح التنقل الثانوي"
                 icon={<HamburgerIcon color="black" fontSize="2xl" />}
