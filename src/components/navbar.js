@@ -43,7 +43,11 @@ const Navbar = ({ fluid }) => {
             <ListItem ml={5} key="home-page-1">
               <Link aria-label="الصفحة الرئيسية" to="/">
                 <Box boxSize="sm" w="3rem" h="3rem">
-                  <Img fluid={fluid} alt="شعار النادي الإعلامي" />
+                  <Img
+                    loading="eager"
+                    fluid={fluid}
+                    alt="شعار النادي الإعلامي"
+                  />
                 </Box>
               </Link>
             </ListItem>
