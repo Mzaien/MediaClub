@@ -2,6 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import { Container } from "@chakra-ui/react"
+import Fonts from "./fonts"
 
 import Header from "./header"
 
@@ -18,6 +19,7 @@ const Layout = ({ children }) => {
 
   return (
     <>
+      <Fonts />
       <Header siteTitle={data.site.siteMetadata?.title || `العنوان`} />
       <main>
         <Container maxW="md" my={5}>

@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import PostCard from "../components/post-card"
+import { Heading } from "@chakra-ui/react"
 
 const IndexPage = ({ data }) => {
   const {
@@ -11,6 +12,7 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <SEO title="الصفحة الرئيسية" />
+      <Heading mb={6}>جديد النادي الإعلامي</Heading>
       {segilatPosts.map(post => (
         <PostCard key={post.id} post={post} />
       ))}
@@ -30,6 +32,10 @@ export const query = graphql`
               ...GatsbyPrismicImageFluid
             }
             alt
+          }
+          youtube_link {
+            thumbnail_url
+            title
           }
           content {
             text

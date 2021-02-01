@@ -26,6 +26,9 @@ exports.createPages = async ({ actions, graphql }) => {
     createPage({
       path: `/p/${slug}`,
       component: path.resolve("./src/templates/podcast-post.js"),
+      context: {
+        id: post.id,
+      },
     })
   })
 }

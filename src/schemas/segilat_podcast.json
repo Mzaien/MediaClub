@@ -7,6 +7,13 @@
         "label": "العنوان"
       }
     },
+    "youtube_link": {
+      "type": "Embed",
+      "config": {
+        "label": "رابط الحلقة على يوتيوب",
+        "placeholder": "أدخل رابط الحلقة على يوتيوب"
+      }
+    },
     "main_image": {
       "type": "Image",
       "config": {
@@ -28,9 +35,10 @@
     "label": {
       "type": "Select",
       "config": {
-        "options": ["ملفات أكاديمية", "بينيات", "تجربة"],
+        "options": ["ملفات أكاديمية", "بينيات"],
+        "default_value": "ملفات أكاديمية",
         "label": "التصنيف",
-        "placeholder": "تصنيف بودكاست سجلات"
+        "placeholder": "اختر تصنيف بودكاست سجلات"
       }
     },
     "uid": {

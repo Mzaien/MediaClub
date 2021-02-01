@@ -1,10 +1,41 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
-import { Box, Heading, Text } from "@chakra-ui/react"
+import { Box, Heading, Text, Image } from "@chakra-ui/react"
 import Img from "gatsby-image"
 
 const PostCard = ({ post }) => {
+  const {
+    id,
+    uid,
+    data: { label, main_image, youtube_link, title, content },
+    first_publication_date,
+  } = post
+
+  const renderPostImage = () =>
+    main_image.fluid ? (
+      <Img
+        fluid={main_image.fluid}
+        alt={main_image.alt}
+        style={{
+          borderRadius: "inherit",
+          height: "100%",
+        }}
+        imgStyle={{
+          objectFit: "cover",
+          borderRadius: "inherit",
+        }}
+      />
+    ) : youtube_link ? (
+      <Image
+        src={youtube_link.thumbnail_url}
+        alt={youtube_link.title}
+        w="full"
+        h="full"
+        borderRadius="inherit"
+      />
+    ) : undefined
+
   return (
     <Box
       as="article"
@@ -18,7 +49,7 @@ const PostCard = ({ post }) => {
     >
       <Box
         as={Link}
-        to={`/p/${post.id.split("-")[0]}/${post.uid}`}
+        to={`/p/${id.split("-")[0]}/${uid}`}
         d="flex"
         flexDirection={["column", null, "row"]}
       >
@@ -32,41 +63,34 @@ const PostCard = ({ post }) => {
         >
           <Box flexGrow="1">
             <Box as="small" mb={5} d="inline-block" color="gray.500">
-              {post.data.label}
+              {label}
             </Box>
-            <Heading as="h5" mb={5}>
-              {post.data.title.text}
+            <Heading as="h3" mb={5}>
+              {title.text}
             </Heading>
-            <Text fontSize="md">
-              {post.data.content.text.slice(0, 300) + "..."}
-            </Text>
+            <Text fontSize="md">{content.text.slice(0, 300) + "..."}</Text>
           </Box>
           <Text fontWeight="bold" mt={3}>
-            <time>{post.first_publication_date}</time>
+            <time>{first_publication_date}</time>
           </Text>
         </Box>
 
-        <Box
-          flexGrow="1"
-          order={[1, null, 2]}
-          minW="35%"
-          borderTopLeftRadius="md"
-          borderTopRightRadius={["md", null, "none"]}
-          borderBottomLeftRadius={[null, null, "md"]}
-        >
-          <Img
-            fluid={post.data.main_image?.fluid}
-            alt={post.data.main_image?.alt}
-            style={{
-              borderRadius: "inherit",
-              height: "100%",
+        {renderPostImage() && (
+          <Box
+            flexGrow="1"
+            order={[1, null, 2]}
+            minW="40%"
+            maxW={{ base: "full", md: "40%" }}
+            borderTopLeftRadius="md"
+            borderTopRightRadius={{
+              base: "md",
+              md: "none",
             }}
-            imgStyle={{
-              objectFit: "cover",
-              borderRadius: "inherit",
-            }}
-          />
-        </Box>
+            borderBottomLeftRadius={{ md: "md" }}
+          >
+            {renderPostImage()}
+          </Box>
+        )}
       </Box>
     </Box>
   )

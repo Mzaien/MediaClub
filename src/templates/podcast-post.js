@@ -2,17 +2,40 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { Container } from "@chakra-ui/react"
+import { Box } from "@chakra-ui/react"
+import { RichText } from "prismic-reactjs"
 
-const PodcastPostTemplate = () => {
+const PodcastPostTemplate = ({ data }) => {
+  console.log("data is", data)
+  const {
+    data: { title, content },
+  } = data.prismicSegilatPodcast
+
   return (
     <Layout>
-      <SEO title="عنوان مؤقت" />
-      <Container maxW="md">
-        <div>هذا القالب الخاص بعرض المشاركات</div>
-      </Container>
+      <SEO title={title.text} />
+      <Box p={8} shadow="base" my={5} borderRadius="sm">
+        <RichText render={content.raw} />
+      </Box>
     </Layout>
   )
 }
+
+export const query = graphql`
+  query($id: String) {
+    prismicSegilatPodcast(id: { eq: $id }) {
+      id
+      data {
+        title {
+          text
+        }
+        content {
+          html
+          raw
+        }
+      }
+    }
+  }
+`
 
 export default PodcastPostTemplate
