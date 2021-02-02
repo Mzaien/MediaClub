@@ -15,7 +15,7 @@ const PostCard = ({ post }) => {
   const renderPostImage = () =>
     main_image.fluid ? (
       <Img
-        loading="eager"
+        loading="auto"
         fluid={main_image.fluid}
         alt={main_image.alt}
         style={{

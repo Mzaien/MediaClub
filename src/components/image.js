@@ -31,7 +31,7 @@ const Image = () => {
   }
 
   return (
-    <Img loading="eager" fluid={data.placeholderImage.childImageSharp.fluid} />
+    <Img loading="auto" fluid={data.placeholderImage.childImageSharp.fluid} />
   )
 }
 

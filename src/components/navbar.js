@@ -44,7 +44,7 @@ const Navbar = ({ fluid }) => {
               <Link aria-label="الصفحة الرئيسية" to="/">
                 <Box boxSize="sm" w="3rem" h="3rem">
                   <Img
-                    loading="eager"
+                    loading="auto"
                     fluid={fluid}
                     alt="شعار النادي الإعلامي"
                   />
