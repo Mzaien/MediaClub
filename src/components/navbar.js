@@ -72,7 +72,7 @@ const Navbar = ({ fluid }) => {
                 aria-label="ابحث في الموقع"
                 icon={<SearchIcon color="black" fontSize="2xl" />}
                 colorScheme="whiteAlpha"
-                size="sm"
+                mx={[1,2]}
               />
             </ListItem>
             <ListItem mr={3} key="open-drawer-3">
@@ -80,17 +80,19 @@ const Navbar = ({ fluid }) => {
                 aria-label="افتح التنقل الثانوي"
                 icon={<HamburgerIcon color="black" fontSize="2xl" />}
                 colorScheme="whiteAlpha"
-                size="sm"
+                mx={[1,2]}
                 onClick={onOpen}
               />
             </ListItem>
-            <IconButton
-              as="button"
-              onClick={toggleColorMode}
-              align="center"
-              icon={colorMode === "dark" ? <MoonIcon /> : <SunIcon />}
-              mx={2}
-            />
+            <ListItem mr={3} key="light-dark-toggol">
+              <IconButton
+                as="button"
+                onClick={toggleColorMode}
+                align="center"
+                icon={colorMode === "dark" ? <MoonIcon /> : <SunIcon />}
+                mx={[1,2]}
+              />
+            </ListItem>
           </List>
         </Container>
       </nav>
