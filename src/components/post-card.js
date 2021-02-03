@@ -6,10 +6,9 @@ import Img from "gatsby-image"
 
 const PostCard = ({ post }) => {
   const {
-    id,
-    uid,
     data: { label, main_image, youtube_link, title, content },
     first_publication_date,
+    postPath,
   } = post
 
   const renderPostImage = () =>
@@ -49,7 +48,7 @@ const PostCard = ({ post }) => {
     >
       <Box
         as={Link}
-        to={`/p/${id.split("-")[0]}/${uid}`}
+        to={postPath}
         d="flex"
         flexDirection={["column", null, "row"]}
       >
@@ -68,7 +67,9 @@ const PostCard = ({ post }) => {
             <Heading as="h3" mb={5}>
               {title.text}
             </Heading>
-            <Text fontSize="md">{content.text.slice(0, 300) + "..."}</Text>
+            <Text fontSize="md" noOfLines={4}>
+              {content.text}
+            </Text>
           </Box>
           <Text fontWeight="bold" mt={3}>
             <time>{first_publication_date}</time>

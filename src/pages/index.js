@@ -9,6 +9,7 @@ const IndexPage = ({ data }) => {
   const {
     segilatPostsQuery: { nodes: segilatPosts },
   } = data
+
   return (
     <Layout>
       <SEO title="الصفحة الرئيسية" />
@@ -45,9 +46,9 @@ export const query = graphql`
           }
           label
         }
-        first_publication_date(formatString: "DD MMM, YYYY", locale: "ar")
         id
-        uid
+        first_publication_date(formatString: "DD MMM, YYYY", locale: "ar")
+        postPath: gatsbyPath(filePath: "/p/{PrismicSegilatPodcast.prismicId}")
       }
     }
   }

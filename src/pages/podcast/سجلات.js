@@ -4,7 +4,7 @@ import Layout from "../../components/layout"
 import SEO from "../../components/seo"
 import PostCard from "../../components/post-card"
 
-const PetrolPodcast = () => {
+const SegilatPage = () => {
   const data = useStaticQuery(graphql`
     {
       postsQuery: allPrismicSegilatPodcast(
@@ -18,6 +18,10 @@ const PetrolPodcast = () => {
               }
               alt
             }
+            youtube_link {
+              thumbnail_url
+              title
+            }
             content {
               text
             }
@@ -26,9 +30,9 @@ const PetrolPodcast = () => {
             }
             label
           }
-          first_publication_date(formatString: "DD MMM, YYYY", locale: "ar")
           id
-          uid
+          first_publication_date(formatString: "DD MMM, YYYY", locale: "ar")
+          postPath: gatsbyPath(filePath: "/p/{PrismicSegilatPodcast.prismicId}")
         }
       }
     }
@@ -46,4 +50,4 @@ const PetrolPodcast = () => {
   )
 }
 
-export default PetrolPodcast
+export default SegilatPage

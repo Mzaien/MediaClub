@@ -8,11 +8,12 @@ const theme = extendTheme({
       },
     },
   },
+
   styles: {
     global: {
       h1: {
         fontSize: ["4xl", null, "5xl"],
-        lineHeight: [1.2, null, 1],
+        lineHeight: 1.3,
       },
       h2: {
         fontSize: ["3xl", null, "4xl"],
@@ -25,6 +26,9 @@ const theme = extendTheme({
       "h4, h5, h6": {
         fontSize: "xl",
         lineHeight: 1.2,
+      },
+      p: {
+        lineHeight: 1.9,
       },
     },
   },
