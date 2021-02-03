@@ -1,7 +1,8 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
-import { HamburgerIcon, SearchIcon } from "@chakra-ui/icons"
+import { useColorMode } from "@chakra-ui/react"
+import { HamburgerIcon, SearchIcon, MoonIcon, SunIcon } from "@chakra-ui/icons"
 import {
   Container,
   List,
@@ -27,6 +28,7 @@ const navContainerStyles = {
 }
 
 const Navbar = ({ fluid }) => {
+  const { colorMode, toggleColorMode } = useColorMode()
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [isDesktop] = useMediaQuery("(min-width: 48em)")
 
@@ -53,7 +55,7 @@ const Navbar = ({ fluid }) => {
                   <Box
                     as={Link}
                     to={item.dest}
-                    color="gray.600"
+                    color={colorMode === "dark" ? "gray.100" : "gray.600"}
                     _hover={{
                       color: "gray.900",
                     }}
@@ -69,17 +71,26 @@ const Navbar = ({ fluid }) => {
               <IconButton
                 aria-label="ابحث في الموقع"
                 icon={<SearchIcon color="black" fontSize="2xl" />}
-                colorScheme="white"
-                size="sm"
+                colorScheme="whiteAlpha"
+                mx={[1,2]}
               />
             </ListItem>
             <ListItem mr={3} key="open-drawer-3">
               <IconButton
                 aria-label="افتح التنقل الثانوي"
                 icon={<HamburgerIcon color="black" fontSize="2xl" />}
-                colorScheme="white"
-                size="sm"
+                colorScheme="whiteAlpha"
+                mx={[1,2]}
                 onClick={onOpen}
+              />
+            </ListItem>
+            <ListItem mr={3} key="light-dark-toggol">
+              <IconButton
+                as="button"
+                onClick={toggleColorMode}
+                align="center"
+                icon={colorMode === "dark" ? <MoonIcon /> : <SunIcon />}
+                mx={[1,2]}
               />
             </ListItem>
           </List>
