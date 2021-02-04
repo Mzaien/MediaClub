@@ -1,3 +1,5 @@
+const linkResolver = require("./src/utils/linkResolver")
+
 module.exports = {
   siteMetadata: {
     title: `النادي الإعلامي`,
@@ -41,6 +43,7 @@ module.exports = {
       resolve: "gatsby-source-prismic",
       options: {
         repositoryName: "mediaclub",
+        linkResolver: () => doc => linkResolver(doc),
         schemas: {
           segilat_podcast: require("./src/schemas/segilat_podcast.json"),
         },

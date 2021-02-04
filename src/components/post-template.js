@@ -15,7 +15,9 @@ const PostTemplate = ({ post }) => {
           {title.text}
         </Heading>
       </header>
-      <Img fluid={main_image.fluid} alt={main_image.alt || title.text} />
+      {main_image.fluid && (
+        <Img fluid={main_image.fluid} alt={main_image.alt || title.text} />
+      )}
       <Box my={5}>
         <RichText render={content.raw} htmlSerializer={htmlSerializer} />
       </Box>

@@ -7,10 +7,21 @@ const theme = extendTheme({
         size: null,
       },
     },
+    Link: {
+      variants: {
+        "inline-link": ({ colorMode }) => ({
+          color: colorMode === "light" ? "teal.500" : "teal.300",
+          _hover: {
+            color: colorMode === "light" ? "teal.700" : "teal.100",
+            textDecoration: "underline",
+          },
+        }),
+      },
+    },
   },
 
   styles: {
-    global: {
+    global: () => ({
       h1: {
         fontSize: ["4xl", null, "5xl"],
         lineHeight: 1.3,
@@ -30,7 +41,7 @@ const theme = extendTheme({
       p: {
         lineHeight: 1.9,
       },
-    },
+    }),
   },
   direction: "rtl",
   sizes: {
