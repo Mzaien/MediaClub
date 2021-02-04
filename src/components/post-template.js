@@ -1,17 +1,18 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { Box, Heading } from "@chakra-ui/react"
+import { Box, Heading,useColorMode } from "@chakra-ui/react"
 import { RichText } from "prismic-reactjs"
 import htmlSerializer from "../utils/htmlSerializer"
 import Img from "gatsby-image"
 
 const PostTemplate = ({ post }) => {
+  const { colorMode } = useColorMode()
   const { title, content, main_image } = post
 
   return (
     <Box as="article">
       <header>
-        <Heading as="h1" py={7} borderTop="3px solid black">
+        <Heading as="h1" py={7} borderTop={colorMode==="dark"? "3px solid white":"3px solid black"}>
           {title.text}
         </Heading>
       </header>
