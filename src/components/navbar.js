@@ -57,7 +57,7 @@ const Navbar = ({ fluid }) => {
                     to={item.dest}
                     color={colorMode === "dark" ? "gray.100" : "gray.600"}
                     _hover={{
-                      color: "gray.900",
+                      color: colorMode === "dark" ? "gray.300" : "gray.900",
                     }}
                     fontSize="lg"
                     fontWeight="600"
@@ -72,7 +72,7 @@ const Navbar = ({ fluid }) => {
                 aria-label="ابحث في الموقع"
                 icon={<SearchIcon color="black" fontSize="2xl" />}
                 colorScheme="whiteAlpha"
-                mx={[1,2]}
+                mx={[1, 2]}
               />
             </ListItem>
             <ListItem mr={3} key="open-drawer-3">
@@ -80,7 +80,7 @@ const Navbar = ({ fluid }) => {
                 aria-label="افتح التنقل الثانوي"
                 icon={<HamburgerIcon color="black" fontSize="2xl" />}
                 colorScheme="whiteAlpha"
-                mx={[1,2]}
+                mx={[1, 2]}
                 onClick={onOpen}
               />
             </ListItem>
@@ -90,7 +90,7 @@ const Navbar = ({ fluid }) => {
                 onClick={toggleColorMode}
                 align="center"
                 icon={colorMode === "dark" ? <MoonIcon /> : <SunIcon />}
-                mx={[1,2]}
+                mx={[1, 2]}
               />
             </ListItem>
           </List>
