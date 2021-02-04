@@ -6,7 +6,7 @@ import Navbar from "./navbar"
 const Header = ({ siteTitle }) => {
   const data = useStaticQuery(graphql`
     {
-      file(relativePath: { eq: "media-club-logo.jpg" }) {
+      file(relativePath: { eq: "media-club-logo.png" }) {
         childImageSharp {
           fluid(maxWidth: 200) {
             ...GatsbyImageSharpFluid_noBase64
