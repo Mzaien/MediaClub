@@ -5,7 +5,7 @@ import { ColorModeScript } from "@chakra-ui/react"
 export const onRenderBody = ({ setPreBodyComponents }) => {
   setPreBodyComponents([
     <ColorModeScript
-      initialColorMode="system"
+      initialColorMode="light"
       key="chakra-ui-no-flash"
     />,
   ])
