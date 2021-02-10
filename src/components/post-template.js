@@ -9,7 +9,8 @@ import Img from "gatsby-image"
 const PostTemplate = ({ post }) => {
   const { colorMode } = useColorMode()
   const { title, content, main_image } = post
-  const url = window.location ? window.location.href : ""
+  const url = typeof window !== 'undefined' ? window.location.href : '';
+
   return (
     <Box as="article" mt={[6, 14, 12]}>
       <header>
