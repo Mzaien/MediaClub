@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import { useColorMode } from "@chakra-ui/react"
-import { HamburgerIcon, SearchIcon, MoonIcon, SunIcon } from "@chakra-ui/icons"
+import { FiMenu, FiSearch, FiMoon, FiSun } from "react-icons/fi"
 import {
   Container,
   List,
@@ -70,7 +70,12 @@ const Navbar = ({ fluid }) => {
             <ListItem mr="auto" key="search-website-2">
               <IconButton
                 aria-label="ابحث في الموقع"
-                icon={<SearchIcon color="black" fontSize="2xl" />}
+                icon={
+                  <FiSearch
+                    color={colorMode === "dark" ? "white" : "black"}
+                    fontSize="6xl"
+                  />
+                }
                 colorScheme="whiteAlpha"
                 mx={[1, 2]}
               />
@@ -78,7 +83,12 @@ const Navbar = ({ fluid }) => {
             <ListItem mr={3} key="open-drawer-3">
               <IconButton
                 aria-label="افتح التنقل الثانوي"
-                icon={<HamburgerIcon color="black" fontSize="2xl" />}
+                icon={
+                  <FiMenu
+                    color={colorMode === "dark" ? "white" : "black"}
+                    fontSize="6xl"
+                  />
+                }
                 colorScheme="whiteAlpha"
                 mx={[1, 2]}
                 onClick={onOpen}
@@ -89,7 +99,7 @@ const Navbar = ({ fluid }) => {
                 as="button"
                 onClick={toggleColorMode}
                 align="center"
-                icon={colorMode === "dark" ? <MoonIcon /> : <SunIcon />}
+                icon={colorMode === "dark" ? <FiMoon /> : <FiSun />}
                 mx={[1, 2]}
               />
             </ListItem>

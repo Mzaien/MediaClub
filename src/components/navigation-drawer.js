@@ -16,7 +16,7 @@ import {
   useMediaQuery,
 } from "@chakra-ui/react"
 import NavMenu from "./navigation-menu"
-import { CloseIcon, ChevronDownIcon } from "@chakra-ui/icons"
+import { FiX, FiChevronDown } from "react-icons/fi"
 import mainNavLinks from "../misc/main-navigation-links"
 import secondaryNavLinks, {
   secondarySubLinkPrefix,
@@ -50,7 +50,7 @@ const NavDrawer = ({ isOpen, onClose, navContainerStyles }) => {
                 aria-label="أغلق التنقل الثانوي"
                 colorScheme="white"
                 size="sm"
-                icon={<CloseIcon color="black" />}
+                icon={<FiX color="black" />}
                 onClick={onClose}
               />
             </Container>
@@ -109,7 +109,7 @@ const NavDrawer = ({ isOpen, onClose, navContainerStyles }) => {
                             menuMainItem={{ name, dest }}
                             menuItems={subLinks}
                             menuItemsPrefix={secondarySubLinkPrefix}
-                            rightIcon={<ChevronDownIcon color="black" />}
+                            rightIcon={<FiChevronDown color="black" />}
                           />
                         </React.Fragment>
                       )
