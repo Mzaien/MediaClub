@@ -17,7 +17,7 @@ const JoinUsPage = () => {
   const cors = "https://cors-anywhere.herokuapp.com/"
   const link = `https://docs.google.com/forms/d/e/1BahB7caIZvj3YA6EygyZtpDMtn7ACyrEjzaZTcXXijw/formResponse`
   const onSubmit = data => {
-    const formData = new FormData(data)
+    const formData = new FormData(data.target)
     axios({
       url: `${cors}${link}`,
       method: "post",
