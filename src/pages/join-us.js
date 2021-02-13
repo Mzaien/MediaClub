@@ -15,7 +15,7 @@ import axios from "axios"
 const JoinUsPage = () => {
   const { register, handleSubmit, errors } = useForm()
   const cors = "https://shrouded-earth-67675.herokuapp.com/"
-  const link = `https://docs.google.com/forms/d/e/1BahB7caIZvj3YA6EygyZtpDMtn7ACyrEjzaZTcXXijw/formResponse`
+  const link = `https://docs.google.com/forms/d/e/1FAIpQLSe0jE7c36Me40FX1Ir-NXAFhwA5VSIz2bqYPV0Bx7f47iv-EQ/formResponse`
   const onSubmit = data => {
     const formData = new FormData(data.target)
     axios({
