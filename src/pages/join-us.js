@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form"
-import React from "react"
+import React, { useState } from "react"
 import {
   FormErrorMessage,
   FormLabel,
@@ -14,8 +14,19 @@ import SEO from "../components/seo"
 import axios from "axios"
 const JoinUsPage = () => {
   const { register, handleSubmit, errors } = useForm()
+  const [Input, setInput] = useState({
+    inputs: {
+      name: { id: 2005620554, value: "" },
+      email: { id: 1045781291, value: "" },
+      phone: { id: 1166974658, value: null },
+    },
+  })
   const cors = "https://shrouded-earth-67675.herokuapp.com/"
   const link = `https://docs.google.com/forms/d/e/1FAIpQLSe0jE7c36Me40FX1Ir-NXAFhwA5VSIz2bqYPV0Bx7f47iv-EQ/formResponse`
+  function handleChangename(e) {
+    const { value } = e.target
+    inputs[name].setInput(value)
+  }
   const onSubmit = data => {
     const formData = new FormData(data.target)
     axios({
@@ -39,7 +50,9 @@ const JoinUsPage = () => {
       <Box p={8}>
         <form onSubmit={handleSubmit(onSubmit)}>
           <FormControl isRequired>
-            <FormLabel htmlFor="name">اسمك الكريم</FormLabel>
+            <FormLabel htmlFor="name" onChange={handleChange()}>
+              اسمك الكريم
+            </FormLabel>
             <Input
               type="text"
               placeholder="Name"
@@ -51,7 +64,9 @@ const JoinUsPage = () => {
             </FormErrorMessage>
           </FormControl>
           <FormControl isRequired>
-            <FormLabel htmlFor="Email">إيميلك الجامعي</FormLabel>
+            <FormLabel htmlFor="Email" onChange={handleChange()}>
+              إيميلك الجامعي
+            </FormLabel>
             <Input
               type="text"
               placeholder="Email"
@@ -63,7 +78,9 @@ const JoinUsPage = () => {
             </FormErrorMessage>
           </FormControl>
           <FormControl isRequired>
-            <FormLabel htmlFor="Mobile number">رقم جوالك</FormLabel>
+            <FormLabel htmlFor="Mobile number" onChange={handleChange()}>
+              رقم جوالك
+            </FormLabel>
             <Input
               type="tel"
               placeholder="Mobile number"
