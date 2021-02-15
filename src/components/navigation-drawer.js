@@ -50,7 +50,7 @@ const NavDrawer = ({ isOpen, onClose, navContainerStyles }) => {
                 aria-label="أغلق التنقل الثانوي"
                 colorScheme="white"
                 size="sm"
-                icon={<FiX color="black" />}
+                icon={<FiX />}
                 onClick={onClose}
               />
             </Container>
@@ -109,7 +109,7 @@ const NavDrawer = ({ isOpen, onClose, navContainerStyles }) => {
                             menuMainItem={{ name, dest }}
                             menuItems={subLinks}
                             menuItemsPrefix={secondarySubLinkPrefix}
-                            rightIcon={<FiChevronDown color="black" />}
+                            rightIcon={<FiChevronDown />}
                           />
                         </React.Fragment>
                       )
