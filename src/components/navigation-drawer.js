@@ -110,11 +110,7 @@ const NavDrawer = ({ isOpen, onClose, navContainerStyles }) => {
                             menuMainItem={{ name, dest }}
                             menuItems={subLinks}
                             menuItemsPrefix={secondarySubLinkPrefix}
-                            rightIcon={
-                              <FiChevronDown
-                                color={colorMode === "dark" ? "white" : "black"}
-                              />
-                            }
+                            rightIcon={<FiChevronDown color="black" />}
                           />
                         </React.Fragment>
                       )
