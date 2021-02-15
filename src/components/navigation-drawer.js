@@ -12,6 +12,7 @@ import {
   Box,
   IconButton,
   Button,
+  useColorMode,
   useBreakpointValue,
   useMediaQuery,
 } from "@chakra-ui/react"
@@ -27,7 +28,7 @@ const NavDrawer = ({ isOpen, onClose, navContainerStyles }) => {
     base: "full",
     md: "xs",
   })
-
+  const { colorMode } = useColorMode()
   const [isDesktop] = useMediaQuery("(min-width: 48em)")
 
   return (
@@ -50,7 +51,7 @@ const NavDrawer = ({ isOpen, onClose, navContainerStyles }) => {
                 aria-label="أغلق التنقل الثانوي"
                 colorScheme="white"
                 size="sm"
-                icon={<FiX />}
+                icon={<FiX color={colorMode === "dark" ? "white" : "black"} />}
                 onClick={onClose}
               />
             </Container>
@@ -109,7 +110,11 @@ const NavDrawer = ({ isOpen, onClose, navContainerStyles }) => {
                             menuMainItem={{ name, dest }}
                             menuItems={subLinks}
                             menuItemsPrefix={secondarySubLinkPrefix}
-                            rightIcon={<FiChevronDown />}
+                            rightIcon={
+                              <FiChevronDown
+                                color={colorMode === "dark" ? "white" : "black"}
+                              />
+                            }
                           />
                         </React.Fragment>
                       )
