@@ -1,6 +1,5 @@
-import React, { useState } from "react"
+import React from "react"
 import {
-  FormErrorMessage,
   FormLabel,
   FormControl,
   Input,
@@ -61,7 +60,7 @@ const JoinUsPage = () => {
           <FormControl isRequired>
             <FormLabel htmlFor="Email">إيميلك الجامعي</FormLabel>
             <Input
-              type="text"
+              type="email"
               placeholder="Email"
               name="Email"
               onChange={handleChange}
