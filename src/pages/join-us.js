@@ -6,6 +6,8 @@ import {
   Button,
   Box,
   Heading,
+  Alert,
+  AlertIcon,
 } from "@chakra-ui/react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -31,7 +33,12 @@ const JoinUsPage = () => {
         ...state,
       }),
     })
-      .then(() => navigate(form.getAttribute("action")))
+      .then(() => (
+        <Alert status="success" variant="left-accent" colorScheme="linkedin">
+          <AlertIcon />
+          شكرا لك 🌷
+        </Alert>
+      ))
       .catch(error => alert(error))
   }
   return (
