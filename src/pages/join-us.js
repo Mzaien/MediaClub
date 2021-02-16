@@ -6,9 +6,8 @@ import {
   Button,
   Box,
   Heading,
-  Alert,
-  AlertIcon,
 } from "@chakra-ui/react"
+import { navigate } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 function encode(data) {
@@ -33,12 +32,7 @@ const JoinUsPage = () => {
         ...state,
       }),
     })
-      .then(() => (
-        <Alert status="success" variant="left-accent" colorScheme="linkedin">
-          <AlertIcon />
-          شكرا لك 🌷
-        </Alert>
-      ))
+      .then(() => navigate(form.getAttribute("action")))
       .catch(error => alert(error))
   }
   return (
@@ -49,7 +43,7 @@ const JoinUsPage = () => {
         <form
           method="POST"
           data-netlify="true"
-          action="/شكرا لك 🌷/"
+          action="/شكرا/"
           netlify-honeypot="bot-field"
           name="join-us"
           onSubmit={handleSubmit}
