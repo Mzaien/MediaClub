@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import {
   FormErrorMessage,
   FormLabel,
@@ -10,7 +10,31 @@ import {
 } from "@chakra-ui/react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+function encode(data) {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&")
+}
 const JoinUsPage = () => {
+  const [state, setState] = React.useState({})
+  const handleChange = e => {
+    setState({ ...state, [e.target.name]: e.target.value })
+  }
+
+  const handleSubmit = e => {
+    e.preventDefault()
+    const form = e.target
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({
+        "form-name": form.getAttribute("name"),
+        ...state,
+      }),
+    })
+      .then(() => navigate(form.getAttribute("action")))
+      .catch(error => alert(error))
+  }
   return (
     <Layout>
       <SEO title="الانضمام للنادي" />
@@ -19,18 +43,29 @@ const JoinUsPage = () => {
         <form
           method="POST"
           data-netlify="true"
+          action="/شكرا لك 🌷/"
           netlify-honeypot="bot-field"
           name="join-us"
+          onSubmit={handleSubmit}
         >
+          <input type="hidden" name="form-name" value="contact" />
           <FormControl isRequired>
             <FormLabel htmlFor="name">اسمك الكريم</FormLabel>
-            <Input type="text" placeholder="Name" name="Name" />
-            <FormErrorMessage></FormErrorMessage>
+            <Input
+              type="text"
+              placeholder="Name"
+              name="Name"
+              onChange={handleChange}
+            />
           </FormControl>
           <FormControl isRequired>
             <FormLabel htmlFor="Email">إيميلك الجامعي</FormLabel>
-            <Input type="text" placeholder="Email" name="Email" />
-            <FormErrorMessage></FormErrorMessage>
+            <Input
+              type="text"
+              placeholder="Email"
+              name="Email"
+              onChange={handleChange}
+            />
           </FormControl>
           <FormControl isRequired>
             <FormLabel htmlFor="Mobile number">رقم جوالك</FormLabel>
@@ -38,8 +73,8 @@ const JoinUsPage = () => {
               type="tel"
               placeholder="Mobile number"
               name="Mobile number"
+              onChange={handleChange}
             />
-            <FormErrorMessage></FormErrorMessage>
           </FormControl>
           <Button mt={4} colorScheme="linkedin" type="submit">
             أرسل
