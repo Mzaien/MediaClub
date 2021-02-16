@@ -16,7 +16,12 @@ const JoinUsPage = () => {
       <SEO title="الانضمام للنادي" />
       <Heading as="h1">انضم للنادي</Heading>
       <Box p={8}>
-        <form method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <form
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          name="join-us"
+        >
           <FormControl isRequired>
             <FormLabel htmlFor="name">اسمك الكريم</FormLabel>
             <Input type="text" placeholder="Name" name="Name" />
