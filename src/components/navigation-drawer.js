@@ -95,6 +95,7 @@ const NavDrawer = ({ isOpen, onClose, navContainerStyles }) => {
 
                       return !subLinks ? (
                         <Button
+                          aria-label="SubLink"
                           as={Link}
                           to={dest}
                           {...navButtonStyles}
