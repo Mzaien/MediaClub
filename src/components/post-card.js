@@ -57,6 +57,7 @@ const PostCard = ({ post }) => {
           p={8}
           pt={5}
           flexGrow="1"
+          maxW={{ base: "full", md: "60%" }}
           d="flex"
           flexDirection="column"
         >
