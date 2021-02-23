@@ -76,7 +76,7 @@ const JoinUsPage = () => {
               onChange={handleChange}
             />
           </FormControl>
-          <Button mt={4} colorScheme="linkedin" type="submit">
+          <Button aria-label="أرسل" mt={4} colorScheme="linkedin" type="submit">
             أرسل
           </Button>
         </form>

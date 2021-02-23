@@ -96,6 +96,7 @@ const Navbar = ({ fluid }) => {
             </ListItem>
             <ListItem mr={3} key="light-dark-toggol">
               <IconButton
+                aria-label="غير النمط"
                 as="button"
                 onClick={toggleColorMode}
                 align="center"

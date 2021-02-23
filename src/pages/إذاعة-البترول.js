@@ -23,6 +23,7 @@ const PetrolPodcast = () => {
       >
         {pageUrls.map((link, index) => (
           <Button
+          aria-label="Link"
             h="5rem"
             as={Link}
             to={`${secondarySubLinkPrefix}/${link.dest}`}
