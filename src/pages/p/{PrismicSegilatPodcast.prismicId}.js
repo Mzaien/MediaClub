@@ -9,7 +9,7 @@ const SegilatPostPage = ({ data, params }) => {
 
   return (
     <Layout>
-      <SEO title={post.title.text} />
+      <SEO title={post.title.text} description={post.content.text} />
       <PostTemplate post={post} />
     </Layout>
   )
@@ -26,16 +26,18 @@ export const query = graphql`
         content {
           html
           raw
+          text
         }
         main_image {
           fluid(maxWidth: 1200) {
             ...GatsbyPrismicImageFluid
           }
           alt
+          url
         }
-        youtube_link {
-          thumbnail_url
-          title
+        embed_link {
+          embed_url
+          provider_name
         }
       }
     }

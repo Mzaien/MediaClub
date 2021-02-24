@@ -11,9 +11,9 @@ import {
 
 export default function sharelist({ url, title }) {
   return (
-    <HStack spacing={4} justify="center" my={[1, 2, 4]}>
+    <HStack spacing={4} justify="center" my="4">
       <Tooltip label="أرسل للواتس اب" aria-label="A tooltip">
-        <WhatsappShareButton url={url} subject={title}>
+        <WhatsappShareButton url={url} subject={title.text}>
           <IconButton
             aria-label="أرسل للواتساب"
             icon={<RiWhatsappLine size={24} />}
@@ -21,7 +21,7 @@ export default function sharelist({ url, title }) {
         </WhatsappShareButton>
       </Tooltip>
       <Tooltip label="أرسل لتلقرام" aria-label="A tooltip">
-        <TelegramShareButton url={url} subject={title}>
+        <TelegramShareButton url={url} subject={title.text}>
           <IconButton
             aria-label="أرسل لتلقرام"
             icon={<RiTelegramLine size={24} />}
@@ -29,12 +29,12 @@ export default function sharelist({ url, title }) {
         </TelegramShareButton>
       </Tooltip>
       <Tooltip label="أرسل لتويتر" aria-label="A tooltip">
-        <TwitterShareButton url={url} subject={title}>
+        <TwitterShareButton url={url} subject={title.text}>
           <IconButton aria-label="أرسل لتويتر" icon={<FiTwitter size={24} />} />
         </TwitterShareButton>
       </Tooltip>
       <Tooltip label="أرسل بالايميل" aria-label="A tooltip">
-        <EmailShareButton url={url} subject={title}>
+        <EmailShareButton url={url} subject={title.text}>
           <IconButton aria-label="أرسل بالايميل" icon={<FiMail size={24} />} />
         </EmailShareButton>
       </Tooltip>

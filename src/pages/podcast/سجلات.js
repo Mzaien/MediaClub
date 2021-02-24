@@ -18,10 +18,6 @@ const SegilatPage = () => {
               }
               alt
             }
-            youtube_link {
-              thumbnail_url
-              title
-            }
             content {
               text
             }

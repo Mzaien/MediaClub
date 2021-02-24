@@ -7,19 +7,19 @@
         "label": "العنوان"
       }
     },
-    "youtube_link": {
+    "embed_link": {
       "type": "Embed",
       "config": {
-        "label": "رابط الحلقة على يوتيوب",
-        "placeholder": "أدخل رابط الحلقة على يوتيوب"
+        "label": "رابط الحلقة",
+        "placeholder": "(يوتيوب، Soundcloud, ...)"
       }
     },
     "main_image": {
       "type": "Image",
       "config": {
         "constraint": {
-          "width": 900,
-          "height": 900
+          "width": 1280,
+          "height": 720
         },
         "thumbnails": [],
         "label": "الصورة الرئيسية"
@@ -29,6 +29,7 @@
       "type": "StructuredText",
       "config": {
         "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "allowTargetBlank": true,
         "label": "المحتوى"
       }
     },

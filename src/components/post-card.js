@@ -6,7 +6,7 @@ import Img from "gatsby-image"
 
 const PostCard = ({ post }) => {
   const {
-    data: { label, main_image, youtube_link, title, content },
+    data: { label, main_image, embed_link, title, content },
     first_publication_date,
     postPath,
   } = post
@@ -25,10 +25,10 @@ const PostCard = ({ post }) => {
           borderRadius: "inherit",
         }}
       />
-    ) : youtube_link ? (
+    ) : embed_link ? (
       <Image
-        src={youtube_link.thumbnail_url}
-        alt={youtube_link.title}
+        src={embed_link.thumbnail_url}
+        alt={embed_link.title}
         w="full"
         h="full"
         borderRadius="inherit"

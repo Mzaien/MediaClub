@@ -3,13 +3,18 @@ import PropTypes from "prop-types"
 import { Box, Heading, useColorMode } from "@chakra-ui/react"
 import { RichText } from "prismic-reactjs"
 import Share from "./share-list"
+import PostHeaderContent from "./post-header-content"
 import htmlSerializer from "../utils/htmlSerializer"
-import Img from "gatsby-image"
 
 const PostTemplate = ({ post }) => {
   const { colorMode } = useColorMode()
-  const { title, content, main_image } = post
-  const url = typeof window !== 'undefined' ? window.location.href : '';
+  const {
+    title,
+    content,
+    main_image,
+    embed_link: { embed_url, provider_name },
+  } = post
+  const url = typeof window !== "undefined" ? window.location.href : ""
 
   return (
     <Box as="article" mt={[6, 14, 12]}>
@@ -24,9 +29,12 @@ const PostTemplate = ({ post }) => {
           {title.text}
         </Heading>
       </header>
-      {main_image.fluid && (
-        <Img fluid={main_image.fluid} alt={main_image.alt || title.text} />
-      )}
+      <PostHeaderContent
+        provider_name={provider_name}
+        embed_url={embed_url}
+        main_image={main_image}
+        main_image_alt={main_image.alt || title.text}
+      />
       <Share url={url} title={title} />
       <Box my={5}>
         <RichText render={content.raw} htmlSerializer={htmlSerializer} />

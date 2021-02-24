@@ -34,10 +34,6 @@ export const query = graphql`
             }
             alt
           }
-          youtube_link {
-            thumbnail_url
-            title
-          }
           content {
             text
           }
