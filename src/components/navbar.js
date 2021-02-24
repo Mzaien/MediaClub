@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import { useColorMode } from "@chakra-ui/react"
@@ -14,6 +14,7 @@ import {
 } from "@chakra-ui/react"
 import Img from "gatsby-image"
 import NavDrawer from "./navigation-drawer"
+import Search from "./search-model"
 
 import navLinks from "../misc/main-navigation-links"
 
@@ -28,12 +29,16 @@ const navContainerStyles = {
 }
 
 const Navbar = ({ fluid }) => {
+  const [openSearch,setOpenSearch]=useState(false)
   const { colorMode, toggleColorMode } = useColorMode()
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [isDesktop] = useMediaQuery("(min-width: 48em)")
 
   return (
     <>
+      <Search
+      isOpen={openSearch}
+      />
       <NavDrawer
         isOpen={isOpen}
         onClose={onClose}
@@ -78,6 +83,7 @@ const Navbar = ({ fluid }) => {
                 }
                 colorScheme="whiteAlpha"
                 mx={[1, 2]}
+                onClick={setOpenSearch(!openSearch)}
               />
             </ListItem>
             <ListItem mr={3} key="open-drawer-3">
