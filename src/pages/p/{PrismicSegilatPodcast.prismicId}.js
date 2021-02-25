@@ -9,7 +9,12 @@ const SegilatPostPage = ({ data, params }) => {
 
   return (
     <Layout>
-      <SEO title={post.title.text} description={post.content.text} />
+      <SEO
+        title={post.title.text}
+        description={post.content.text}
+        image={post.main_image.url}
+        article
+      />
       <PostTemplate post={post} />
     </Layout>
   )

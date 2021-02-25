@@ -5,6 +5,8 @@ module.exports = {
     title: `النادي الإعلامي`,
     description: `موقع النادي الإعلامي في جامعة الملك فهد للبترول والمعادن.`,
     author: `@MediaKfupm`,
+    url: `https://media-club.mzaien.vercel.app`, // TODO: Should change when deployed to production
+    image: `/images/media-club-logo.png`,
   },
   plugins: [
     {
