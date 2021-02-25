@@ -33,7 +33,6 @@ const PostHeaderContent = ({
         config={{
           youtube: {
             playerVars: {
-              origin: window.location.origin,
               rel: 0,
             },
           },
