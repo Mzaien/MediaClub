@@ -7,73 +7,39 @@ import {
   Box,
   Heading,
 } from "@chakra-ui/react"
-import { navigate } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-function encode(data) {
-  return Object.keys(data)
-    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&")
-}
 const JoinUsPage = () => {
-  const [state, setState] = React.useState({})
-  const handleChange = e => {
-    setState({ ...state, [e.target.name]: e.target.value })
-  }
-
-  const handleSubmit = e => {
-    e.preventDefault()
-    const form = e.target
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({
-        "form-name": form.getAttribute("name"),
-        ...state,
-      }),
-    })
-      .then(() => navigate(form.getAttribute("action")))
-      .catch(error => alert(error))
-  }
+  const FORMSPARK_ACTION_URL = "https://submit-form.com/yiVEQZ6W"
   return (
     <Layout>
       <SEO title="الانضمام للنادي" />
       <Heading as="h1">انضم للنادي</Heading>
       <Box p={8}>
-        <form
-          method="POST"
-          data-netlify="true"
-          action="/شكرا/"
-          netlify-honeypot="bot-field"
-          name="join-us"
-          onSubmit={handleSubmit}
-        >
-          <input type="hidden" name="form-name" value="contact" />
+        <form method="POST" action={FORMSPARK_ACTION_URL}>
+          <input
+            type="hidden"
+            name="_redirect"
+            value="https://media-club.vercel.app/%D8%B4%D9%83%D8%B1%D8%A7/"
+          />
           <FormControl isRequired>
             <FormLabel htmlFor="name">اسمك الكريم</FormLabel>
-            <Input
-              type="text"
-              placeholder="Name"
-              name="Name"
-              onChange={handleChange}
-            />
+            <Input type="text" placeholder="عبدالله السلطان" name="Name" />
           </FormControl>
           <FormControl isRequired>
             <FormLabel htmlFor="Email">إيميلك الجامعي</FormLabel>
             <Input
               type="email"
-              placeholder="Email"
+              placeholder="s202053450@kfupm.edu.sa"
               name="Email"
-              onChange={handleChange}
             />
           </FormControl>
           <FormControl isRequired>
             <FormLabel htmlFor="Mobile number">رقم جوالك</FormLabel>
             <Input
               type="tel"
-              placeholder="Mobile number"
+              placeholder="+966590177070"
               name="Mobile number"
-              onChange={handleChange}
             />
           </FormControl>
           <Button aria-label="أرسل" mt={4} colorScheme="linkedin" type="submit">
