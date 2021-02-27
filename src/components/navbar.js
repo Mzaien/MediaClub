@@ -51,7 +51,7 @@ const Navbar = ({ fluid }) => {
             </ListItem>
             {isDesktop &&
               navLinks.map((item, index) => (
-                <ListItem key={item.name + index} >
+                <ListItem key={item.name + index} px={4}>
                   <Box
                     as={Link}
                     to={item.dest}
@@ -61,7 +61,7 @@ const Navbar = ({ fluid }) => {
                     }}
                     fontSize="lg"
                     fontWeight="600"
-                    mx={4}
+                    ml={4}
                   >
                     {item.name}
                   </Box>
