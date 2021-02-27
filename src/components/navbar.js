@@ -51,7 +51,7 @@ const Navbar = ({ fluid }) => {
             </ListItem>
             {isDesktop &&
               navLinks.map((item, index) => (
-                <ListItem key={item.name + index} px={4}>
+                <ListItem key={item.name + index} >
                   <Box
                     as={Link}
                     to={item.dest}
