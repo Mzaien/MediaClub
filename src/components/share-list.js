@@ -33,7 +33,7 @@ export default function sharelist({ url, title }) {
         </EmailShareButton>
       </Tooltip>
       <Tooltip label="إنسخ الرابط" aria-label="A tooltip">
-        <spacn>
+        <button>
           <Icon
             aria-label="إنسخ الرابط"
             boxSize={8}
@@ -42,7 +42,7 @@ export default function sharelist({ url, title }) {
               navigator.clipboard.writeText(url)
             }}
           />
-        </spacn>
+        </button>
       </Tooltip>
     </HStack>
   )
