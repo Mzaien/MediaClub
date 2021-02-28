@@ -89,6 +89,10 @@ const NavDrawer = ({ isOpen, onClose, navContainerStyles }) => {
                         backgroundColor: "white",
                         _focus: {
                           boxShadow: "none",
+                          backgroundColor: "gray.200",
+                        },
+                        _hover: {
+                          backgroundColor: "gray.200",
                         },
                         color: "black",
                       }

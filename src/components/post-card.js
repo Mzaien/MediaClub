@@ -4,9 +4,9 @@ import { Link } from "gatsby"
 import { Box, Heading, Text, Image } from "@chakra-ui/react"
 import Img from "gatsby-image"
 
-const PostCard = ({ post }) => {
+const PostCard = ({ post, alternativeLabel }) => {
   const {
-    data: { label, main_image, embed_link, title, content },
+    data: { label, main_image, embed_link, title, content, short_description },
     first_publication_date,
     postPath,
   } = post
@@ -45,6 +45,10 @@ const PostCard = ({ post }) => {
       _hover={{
         borderColor: "teal.200",
       }}
+      _focus={{
+        outline: "none",
+        borderColor: "teal.200",
+      }}
     >
       <Box
         as={Link}
@@ -63,7 +67,7 @@ const PostCard = ({ post }) => {
         >
           <Box flexGrow="1">
             <Box as="small" mb={5} d="inline-block" color="gray.500">
-              {label}
+              {alternativeLabel || label}
             </Box>
             <Heading as="h3" mb={5}>
               {title.text}
@@ -103,6 +107,7 @@ const PostCard = ({ post }) => {
  */
 PostCard.propTypes = {
   post: PropTypes.object.isRequired,
+  alternativeLabel: PropTypes.string, // Use this prop to enforce a different label than post's label
 }
 
 export default PostCard

@@ -14,6 +14,13 @@
         "placeholder": "(يوتيوب، Soundcloud, ...)"
       }
     },
+    "short_description": {
+      "type": "Text",
+      "config": {
+        "label": "وصف قصير",
+        "placeholder": "وصف مختصر للمشاركة لجذب القراء"
+      }
+    },
     "main_image": {
       "type": "Image",
       "config": {
