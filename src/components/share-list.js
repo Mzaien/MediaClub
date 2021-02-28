@@ -1,14 +1,7 @@
 import React from "react"
 import { FiTwitter, FiMail, FiCopy } from "react-icons/fi"
 import { RiWhatsappLine, RiTelegramLine } from "react-icons/ri"
-import {
-  HStack,
-  Tooltip,
-  Button,
-  Icon,
-  chakra,
-  IconButton,
-} from "@chakra-ui/react"
+import { HStack, Tooltip, chakra, IconButton } from "@chakra-ui/react"
 import {
   EmailShareButton,
   TelegramShareButton,
@@ -50,16 +43,13 @@ export default function sharelist({ url, title }) {
         </Email>
       </Tooltip>
       <Tooltip label="إنسخ الرابط" aria-label="A tooltip">
-        <Button>
-          <Icon
-            aria-label="إنسخ الرابط"
-            as={FiCopy}
-            boxSize={8}
-            onClick={() => {
-              navigator.clipboard.writeText(url)
-            }}
-          />
-        </Button>
+        <IconButton
+          aria-label="إنسخ الرابط"
+          icon={<FiCopy size={24} />}
+          onClick={() => {
+            navigator.clipboard.writeText(url)
+          }}
+        />
       </Tooltip>
     </HStack>
   )
