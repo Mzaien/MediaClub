@@ -4,7 +4,7 @@ import { RiWhatsappLine, RiTelegramLine } from "react-icons/ri"
 import {
   HStack,
   Tooltip,
-  Box,
+  Button,
   Icon,
   chakra,
   IconButton,
