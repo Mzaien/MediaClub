@@ -7,7 +7,7 @@ const ListOfArticles = ({ title, articles }) => {
   const columnSize = articles.length > 1 ? [1, null, 2] : 1
 
   return (
-    <>
+    <section>
       <Heading as="h2" my={6}>
         {title}
       </Heading>
@@ -19,7 +19,7 @@ const ListOfArticles = ({ title, articles }) => {
           return <PostCard key={post.id} post={post} />
         })}
       </SimpleGrid>
-    </>
+    </section>
   )
 }
 

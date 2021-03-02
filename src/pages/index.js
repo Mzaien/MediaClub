@@ -2,8 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import PostCard from "../components/post-card"
-import { Heading } from "@chakra-ui/react"
+import ListOfPosts from "../components/list-of-posts"
 
 const IndexPage = ({ data }) => {
   const {
@@ -13,10 +12,7 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <SEO title="الصفحة الرئيسية" />
-      <Heading mb={6}>جديد النادي الإعلامي</Heading>
-      {allPosts.map(post => {
-        return <PostCard key={post.id} post={post} />
-      })}
+      <ListOfPosts title="جديد النادي الإعلامي" posts={allPosts} />
     </Layout>
   )
 }
