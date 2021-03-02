@@ -4,15 +4,16 @@ import Layout from "../../components/layout"
 import SEO from "../../components/seo"
 import PostTemplate from "../../components/post-template"
 
-const PostPage = ({ data, params }) => {
+const PostPage = ({ data }) => {
   const post = data.prismicPost.data
+  const { title, content, main_image, short_description } = post
 
   return (
     <Layout>
       <SEO
-        title={post.title.text}
-        description={post.content.text}
-        image={post.main_image.url}
+        title={title.text}
+        description={short_description || content.text}
+        image={main_image.url}
         article
       />
       <PostTemplate post={post} />
