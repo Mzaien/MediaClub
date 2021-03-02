@@ -47,7 +47,9 @@ module.exports = {
         repositoryName: "mediaclub",
         linkResolver: () => doc => linkResolver(doc),
         schemas: {
-          segilat_podcast: require("./src/schemas/segilat_podcast.json"),
+          homepage: require("./src/schemas/homepage.json"),
+          post: require("./src/schemas/post.json"),
+          tag: require("./src/schemas/tag.json"),
         },
       },
     },

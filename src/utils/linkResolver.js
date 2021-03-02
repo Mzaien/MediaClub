@@ -1,6 +1,7 @@
 const linkResolver = doc => {
-  if (doc.type === "segilat_podcast") {
-    return `/p/${doc.id.toLowerCase()}`
+  console.log("doc", doc)
+  if (doc.type === "post") {
+    return `/post/${doc.id.toLowerCase()}`
   }
 
   return "/"

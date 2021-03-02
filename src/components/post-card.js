@@ -6,7 +6,16 @@ import Img from "gatsby-image"
 
 const PostCard = ({ post, alternativeLabel }) => {
   const {
-    data: { label, main_image, embed_link, title, content, short_description },
+    data: {
+      main_image,
+      embed_link,
+      title,
+      content,
+      short_description,
+      post_tag: {
+        tagDocument: { tagData },
+      },
+    },
     first_publication_date,
     postPath,
   } = post
@@ -67,7 +76,7 @@ const PostCard = ({ post, alternativeLabel }) => {
         >
           <Box flexGrow="1">
             <Box as="small" mb={5} d="inline-block" color="gray.500">
-              {alternativeLabel || label}
+              {alternativeLabel || tagData.content_type}
             </Box>
             <Heading as="h3" mb={5}>
               {title.text}
