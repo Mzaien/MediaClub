@@ -19,6 +19,7 @@ export const query = graphql`
       title {
         text
       }
+      short_description
       embed_link {
         title
         thumbnail_url
