@@ -28,8 +28,13 @@ export const query = graphql`
   }
 
   fragment PostTemplate on PrismicPost {
-    first_publication_date(formatString: "DD MMM, YYYY", locale: "ar")
+    formattedPubDate: first_publication_date(
+      formatString: "DD MMM, YYYY"
+      locale: "ar"
+    )
+    machinePubDate: first_publication_date
     data {
+      short_description
       main_image {
         fluid(maxWidth: 900) {
           ...GatsbyPrismicImageFluid
@@ -39,6 +44,7 @@ export const query = graphql`
       }
       content {
         raw
+        text
       }
       title {
         text
@@ -59,6 +65,13 @@ export const query = graphql`
           }
         }
       }
+    }
+  }
+
+  fragment PostMetaData on Site {
+    postMetaData: siteMetadata {
+      author
+      twitterUsername
     }
   }
 `

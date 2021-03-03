@@ -5,8 +5,9 @@ import SEO from "../../components/seo"
 import PostTemplate from "../../components/post-template"
 
 const PostPage = ({ data }) => {
-  const post = data.prismicPost.data
-  const { title, content, main_image, short_description } = post
+  const post = data.prismicPost
+  const { postMetaData } = data.site
+  const { title, content, main_image, short_description } = post.data
 
   return (
     <Layout>
@@ -16,7 +17,7 @@ const PostPage = ({ data }) => {
         image={main_image.url}
         article
       />
-      <PostTemplate post={post} />
+      <PostTemplate post={post} postMetaData={postMetaData} />
     </Layout>
   )
 }
@@ -25,6 +26,10 @@ export const query = graphql`
   query($id: String) {
     prismicPost(id: { eq: $id }) {
       ...PostTemplate
+    }
+
+    site {
+      ...PostMetaData
     }
   }
 `

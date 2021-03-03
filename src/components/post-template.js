@@ -1,19 +1,25 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { Box, Heading, useColorMode } from "@chakra-ui/react"
+import { Box, Heading, useColorMode, SimpleGrid } from "@chakra-ui/react"
 import { RichText } from "prismic-reactjs"
 import Share from "./share-list"
 import PostHeaderContent from "./post-header-content"
 import htmlSerializer from "../utils/htmlSerializer"
+import PostMetaData from "./post-meta-data"
 
-const PostTemplate = ({ post }) => {
+const PostTemplate = ({ post, postMetaData }) => {
   const { colorMode } = useColorMode()
   const {
-    title,
-    content,
-    main_image,
-    embed_link: { embed_url, provider_name },
+    data: {
+      title,
+      content,
+      main_image,
+      embed_link: { embed_url, provider_name },
+    },
+    formattedPubDate,
+    machinePubDate,
   } = post
+  const { author, twitterUsername } = postMetaData
   const url = typeof window !== "undefined" ? window.location.href : ""
 
   return (
@@ -36,9 +42,21 @@ const PostTemplate = ({ post }) => {
         main_image_alt={main_image.alt || title.text}
       />
       <Share url={url} title={title} />
-      <Box my={5}>
-        <RichText render={content.raw} htmlSerializer={htmlSerializer} />
-      </Box>
+      <SimpleGrid
+        gridTemplateColumns={["1fr", null, "150px 1fr"]}
+        my={5}
+        spacingX={5}
+        spacingY={5}
+      >
+        <PostMetaData
+          dateObject={{ formattedPubDate, machinePubDate }}
+          author={author}
+          twitterUsername={twitterUsername}
+        />
+        <Box fontSize="lg">
+          <RichText render={content.raw} htmlSerializer={htmlSerializer} />
+        </Box>
+      </SimpleGrid>
     </Box>
   )
 }
@@ -48,6 +66,10 @@ const PostTemplate = ({ post }) => {
  */
 PostTemplate.propTypes = {
   post: PropTypes.object.isRequired,
+  postMetaData: PropTypes.shape({
+    author: PropTypes.string.isRequired,
+    twitterUsername: PropTypes.string.isRequired,
+  }).isRequired,
 }
 
 export default PostTemplate

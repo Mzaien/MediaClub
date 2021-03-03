@@ -4,9 +4,10 @@ module.exports = {
   siteMetadata: {
     title: `النادي الإعلامي`,
     description: `موقع النادي الإعلامي في جامعة الملك فهد للبترول والمعادن.`,
-    author: `@MediaKfupm`,
+    author: `النادي الإعلامي`, // Used in post page
     url: `https://media-club.mzaien.vercel.app`, // TODO: Should change when deployed to production
     image: `/images/media-club-logo.png`,
+    twitterUsername: `@MediaKfupm`,
   },
   plugins: [
     {

@@ -1,10 +1,11 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
-import { Box, Heading, Text } from "@chakra-ui/react"
+import { Box, Heading, Text, useColorMode } from "@chakra-ui/react"
 import PostCardImage from "./post-card-image"
 
 const PostCard = ({ post, alternativeTag, isVertical }) => {
+  const { colorMode } = useColorMode()
   const {
     data: {
       main_image,
@@ -51,7 +52,12 @@ const PostCard = ({ post, alternativeTag, isVertical }) => {
           flexDirection="column"
         >
           <Box flexGrow="1">
-            <Box as="small" mb={5} d="inline-block" color="gray.500">
+            <Box
+              as="small"
+              mb={5}
+              d="inline-block"
+              color={colorMode === "light" ? "gray.500" : "gray.300"}
+            >
               {alternativeTag || tagData.content_type}
             </Box>
             <Heading as="h3" mb={5}>
