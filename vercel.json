@@ -1,9 +1,40 @@
 {
-    "routes": [
-      {
-        "src": "/(.*)",
-        "headers": { "cache-control": "max-age=604800, s-maxage=604800, stale-while-revalidate" },
-        "dest": "/$1"
+  "routes": [
+    {
+      "src": "/*.html",
+      "headers": {
+        "cache-control": "cache-control: public, max-age=0, must-revalidate"
       }
-    ]
-  }
+    },
+    {
+      "src": "/page-data/*",
+      "headers": {
+        "cache-control": "cache-control: public, max-age=0, must-revalidate"
+      }
+    },
+    {
+      "src": "/sw.js",
+      "headers": {
+        "cache-control": "cache-control: public, max-age=0, must-revalidate"
+      }
+    },
+    {
+      "src": "/static/*",
+      "headers": {
+        "cache-control": "cache-control: public, max-age=31536000, immutable"
+      }
+    },
+    {
+      "src": "/*.js",
+      "headers": {
+        "cache-control": "cache-control: public, max-age=31536000, immutable"
+      }
+    },
+    {
+      "src": "/*.css",
+      "headers": {
+        "cache-control": "cache-control: public, max-age=31536000, immutable"
+      }
+    }
+  ]
+}
