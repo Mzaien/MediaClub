@@ -74,4 +74,36 @@ export const query = graphql`
       twitterUsername
     }
   }
+
+  fragment AllRecommendedPosts on PrismicPost {
+    recommendedPostsData: data {
+      body {
+        ... on PrismicPostBodyRecommendedPosts {
+          id
+          recommendedPosts: items {
+            recommended_post {
+              document {
+                ... on PrismicPost {
+                  ...PostRecommended
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  fragment PostRecommended on PrismicPost {
+    id
+    data {
+      title {
+        text
+      }
+      main_image {
+        url
+      }
+    }
+    postPath: gatsbyPath(filePath: "/post/{PrismicPost.prismicId}")
+  }
 `

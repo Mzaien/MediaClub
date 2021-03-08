@@ -6,8 +6,9 @@ import Share from "./share-list"
 import PostHeaderContent from "./post-header-content"
 import htmlSerializer from "../utils/htmlSerializer"
 import PostMetaData from "./post-meta-data"
+import PostRecommended from "./post-recommended-card"
 
-const PostTemplate = ({ post, postMetaData }) => {
+const PostTemplate = ({ post, postMetaData, recommendedPosts }) => {
   const { colorMode } = useColorMode()
   const {
     data: {
@@ -25,13 +26,7 @@ const PostTemplate = ({ post, postMetaData }) => {
   return (
     <Box as="article" mt={[6, 14, 12]}>
       <header>
-        <Heading
-          as="h1"
-          py={7}
-          borderTop={
-            colorMode === "dark" ? "3px solid white" : "3px solid black"
-          }
-        >
+        <Heading as="h1" mb={7}>
           {title.text}
         </Heading>
       </header>
@@ -57,6 +52,31 @@ const PostTemplate = ({ post, postMetaData }) => {
           <RichText render={content.raw} htmlSerializer={htmlSerializer} />
         </Box>
       </SimpleGrid>
+
+      {recommendedPosts && (
+        <section>
+          <Heading
+            as="h3"
+            py={5}
+            mt={10}
+            borderTop={
+              colorMode === "dark" ? "3px solid white" : "3px solid black"
+            }
+          >
+            مواضيع مشابهة
+          </Heading>
+          <SimpleGrid minChildWidth="18rem" spacing={5}>
+            {recommendedPosts.map(post => (
+              <PostRecommended
+                key={post.id}
+                title={post.data.title.text}
+                postImage={post.data.main_image.url}
+                postPath={post.postPath}
+              />
+            ))}
+          </SimpleGrid>
+        </section>
+      )}
     </Box>
   )
 }
@@ -70,6 +90,7 @@ PostTemplate.propTypes = {
     author: PropTypes.string.isRequired,
     twitterUsername: PropTypes.string.isRequired,
   }).isRequired,
+  recommendedPosts: PropTypes.array,
 }
 
 export default PostTemplate

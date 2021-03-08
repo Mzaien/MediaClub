@@ -19,7 +19,9 @@ const IndexPage = ({ data }) => {
 
 export const query = graphql`
   {
-    postsQuery: allPrismicPost {
+    postsQuery: allPrismicPost(
+      sort: { fields: first_publication_date, order: DESC }
+    ) {
       nodes {
         ...PostTag
         ...PostCard

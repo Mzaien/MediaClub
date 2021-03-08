@@ -43,31 +43,26 @@
               "name": "test",
               "display": "test"
             }
-          ]
+          ],
+          "list_of_articles": [],
+          "recommended_posts": []
         },
         "choices": {
-          "similer": {
+          "recommended_posts": {
             "type": "Slice",
-            "fieldset": "Similer",
-            "description": "Similar posts",
-            "icon": "ac_unit",
+            "fieldset": "Recommended Posts",
+            "description": "Recommended posts section",
+            "icon": "dehaze",
             "display": "list",
-            "non-repeat": {
-              "smilier_blah": {
-                "type": "StructuredText",
-                "config": {
-                  "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-                  "label": "Smilier blah",
-                  "placeholder": "مشابهات"
-                }
-              }
-            },
+            "non-repeat": {},
             "repeat": {
-              "test": {
+              "recommended_post": {
                 "type": "Link",
                 "config": {
-                  "label": "test",
-                  "placeholder": "daksjhdk"
+                  "select": "document",
+                  "customtypes": ["post"],
+                  "label": "موضوع ذات صلة",
+                  "placeholder": "اختر موضوعاً مشابهاً من هنا"
                 }
               }
             }
