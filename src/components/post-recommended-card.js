@@ -9,21 +9,22 @@ const PostRecommended = ({ title, postImage, postPath }) => {
       as={Link}
       to={postPath}
       shadow="base"
-      py={5}
+      py={2}
       px={3}
       borderRadius={["md", null, "2xl"]}
       backgroundImage={`url(${postImage})`}
       backgroundPosition="center"
       backgroundSize="cover"
-      height="3xs"
+      height={["6rem", null, "15rem"]}
       d="flex"
       flexDir="column"
+      justifyContent="flex-end"
       alignItems="flex-start"
     >
       <Heading
         as="h4"
-        fontSize="lg"
-        mt="auto"
+        fontSize="md"
+        // mt="auto"
         backgroundColor="gray.400"
         color="white"
         borderRadius="md"

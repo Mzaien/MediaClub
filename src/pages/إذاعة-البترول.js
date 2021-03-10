@@ -3,9 +3,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { Link } from "gatsby"
 import { Button, SimpleGrid, Text } from "@chakra-ui/react"
-import secondaryNavLinks, {
-  secondarySubLinkPrefix,
-} from "../misc/secondary-navigation-links"
+import secondaryNavLinks from "../misc/secondary-navigation-links"
 
 const pageUrls = secondaryNavLinks.filter(
   item => item.name === "إذاعة البترول"
@@ -23,10 +21,10 @@ const PetrolPodcast = () => {
       >
         {pageUrls.map((link, index) => (
           <Button
-          aria-label="Link"
+            aria-label="Link"
             h="5rem"
             as={Link}
-            to={`${secondarySubLinkPrefix}/${link.dest}`}
+            to={`/podcast/${link.dest}`}
             key={link.name + index}
           >
             <Text fontSize="xl">{link.name}</Text>
