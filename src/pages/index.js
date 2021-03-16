@@ -2,53 +2,29 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import PostCard from "../components/post-card"
-import { Heading } from "@chakra-ui/react"
+import ListOfPosts from "../components/list-of-posts"
 
 const IndexPage = ({ data }) => {
   const {
-    segilatPostsQuery: { nodes: segilatPosts },
+    postsQuery: { nodes: allPosts },
   } = data
 
   return (
     <Layout>
       <SEO title="الصفحة الرئيسية" />
-      <Heading mb={6}>جديد النادي الإعلامي</Heading>
-      {segilatPosts.map(post => (
-        <PostCard key={post.id} post={post} />
-      ))}
+      <ListOfPosts title="جديد النادي الإعلامي" posts={allPosts} />
     </Layout>
   )
 }
 
 export const query = graphql`
   {
-    segilatPostsQuery: allPrismicSegilatPodcast(
+    postsQuery: allPrismicPost(
       sort: { fields: first_publication_date, order: DESC }
     ) {
       nodes {
-        data {
-          main_image {
-            fluid(maxWidth: 900) {
-              ...GatsbyPrismicImageFluid
-            }
-            alt
-          }
-          youtube_link {
-            thumbnail_url
-            title
-          }
-          content {
-            text
-          }
-          title {
-            text
-          }
-          label
-        }
-        id
-        first_publication_date(formatString: "DD MMM, YYYY", locale: "ar")
-        postPath: gatsbyPath(filePath: "/p/{PrismicSegilatPodcast.prismicId}")
+        ...PostTag
+        ...PostCard
       }
     }
   }

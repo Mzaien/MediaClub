@@ -1,3 +1,7 @@
+/**
+ * This file is used in both React components and gatsby-node file. It should use CommonJS syntax to avoid node.js support issues.
+ */
+
 const links = [
   {
     name: "إذاعة البترول",
@@ -31,19 +35,16 @@ const links = [
   },
   {
     name: "الجبل شو",
-    dest: "/",
+    dest: "/الجبل-شو",
   },
   {
     name: "نشرة البترول",
-    dest: "/",
+    dest: "/نشرة-البترول",
   },
   {
     name: "ديوان الفهد",
-    dest: "/",
+    dest: "/ديوان-الفهد",
   },
 ]
 
-export const secondaryMainLinkPrefix = "/"
-export const secondarySubLinkPrefix = "/podcast"
-
-export default links
+module.exports = links

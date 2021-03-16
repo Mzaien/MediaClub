@@ -1,36 +1,82 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { Box, Heading, useColorMode } from "@chakra-ui/react"
+import { Box, Heading, useColorMode, SimpleGrid } from "@chakra-ui/react"
 import { RichText } from "prismic-reactjs"
 import Share from "./share-list"
+import PostHeaderContent from "./post-header-content"
 import htmlSerializer from "../utils/htmlSerializer"
-import Img from "gatsby-image"
+import PostMetaData from "./post-meta-data"
+import PostRecommended from "./post-recommended-card"
 
-const PostTemplate = ({ post }) => {
+const PostTemplate = ({ post, postMetaData, recommendedPosts }) => {
   const { colorMode } = useColorMode()
-  const { title, content, main_image } = post
-  const url = typeof window !== 'undefined' ? window.location.href : '';
+  const {
+    data: {
+      title,
+      content,
+      main_image,
+      embed_link: { embed_url, provider_name },
+    },
+    formattedPubDate,
+    machinePubDate,
+  } = post
+  const { author, twitterUsername } = postMetaData
+  const url = typeof window !== "undefined" ? window.location.href : ""
 
   return (
     <Box as="article" mt={[6, 14, 12]}>
       <header>
-        <Heading
-          as="h1"
-          py={7}
-          borderTop={
-            colorMode === "dark" ? "3px solid white" : "3px solid black"
-          }
-        >
+        <Heading as="h1" mb={7}>
           {title.text}
         </Heading>
       </header>
-      {main_image.fluid && (
-        <Img fluid={main_image.fluid} alt={main_image.alt || title.text} />
-      )}
+      <PostHeaderContent
+        provider_name={provider_name}
+        embed_url={embed_url}
+        main_image={main_image}
+        main_image_alt={main_image.alt || title.text}
+      />
       <Share url={url} title={title} />
-      <Box my={5}>
-        <RichText render={content.raw} htmlSerializer={htmlSerializer} />
-      </Box>
+      <SimpleGrid
+        gridTemplateColumns={["1fr", null, "150px 1fr"]}
+        my={5}
+        spacingX={5}
+        spacingY={5}
+      >
+        <PostMetaData
+          dateObject={{ formattedPubDate, machinePubDate }}
+          author={author}
+          twitterUsername={twitterUsername}
+        />
+        <Box fontSize="lg">
+          <RichText render={content.raw} htmlSerializer={htmlSerializer} />
+        </Box>
+      </SimpleGrid>
+
+      {recommendedPosts && (
+        <section>
+          <Heading
+            as="h3"
+            py={5}
+            mt={10}
+            borderTop={
+              colorMode === "dark" ? "3px solid white" : "3px solid black"
+            }
+          >
+            مواضيع مشابهة
+          </Heading>
+          <SimpleGrid minChildWidth="18rem" spacing={5}>
+            {recommendedPosts.map(post => (
+              <PostRecommended
+                key={post.id}
+                title={post.data.title.text}
+                postImage={post.data.main_image.url}
+                postPath={post.postPath}
+              />
+            ))}
+          </SimpleGrid>
+        </section>
+      )}
     </Box>
   )
 }
@@ -40,6 +86,11 @@ const PostTemplate = ({ post }) => {
  */
 PostTemplate.propTypes = {
   post: PropTypes.object.isRequired,
+  postMetaData: PropTypes.shape({
+    author: PropTypes.string.isRequired,
+    twitterUsername: PropTypes.string.isRequired,
+  }).isRequired,
+  recommendedPosts: PropTypes.array,
 }
 
 export default PostTemplate

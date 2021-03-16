@@ -1,32 +1,24 @@
-/**
- * SEO component that queries for data with
- *  Gatsby's useStaticQuery React hook
- *
- * See: https://www.gatsbyjs.com/docs/use-static-query/
- */
-
 import React from "react"
 import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
+import { useLocation } from "@reach/router"
 
-function SEO({ description, lang, meta, title }) {
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            author
-          }
-        }
-      }
-    `
-  )
+function SEO({ description, lang, meta, title, image, article }) {
+  const { site } = useStaticQuery(query)
+  const { pathname } = useLocation()
 
-  const metaDescription = description || site.siteMetadata.description
-  const defaultTitle = site.siteMetadata?.title
+  const {
+    siteTitle,
+    defaultDescription,
+    defaultImage,
+    siteURL,
+    twitterUsername,
+  } = site.siteMetadata || {}
+
+  const metaDescription = description?.substring(0, 200) || defaultDescription
+  const metaURL = `${siteURL}${pathname}`
+  const metaImage = image || `${siteURL}${defaultImage}`
 
   return (
     <Helmet
@@ -35,7 +27,7 @@ function SEO({ description, lang, meta, title }) {
         dir: "rtl",
       }}
       title={title}
-      titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : null}
+      titleTemplate={siteTitle ? `%s | ${siteTitle}` : null}
       meta={[
         {
           name: `description`,
@@ -50,16 +42,28 @@ function SEO({ description, lang, meta, title }) {
           content: metaDescription,
         },
         {
+          property: `og:url`,
+          content: metaURL,
+        },
+        {
+          property: `og:image`,
+          content: metaImage,
+        },
+        {
           property: `og:type`,
-          content: `website`,
+          content: article ? `article` : `website`,
         },
         {
           name: `twitter:card`,
-          content: `summary`,
+          content: `summary_large_image`,
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata?.author || ``,
+          content: twitterUsername || ``,
+        },
+        {
+          name: `twitter:site`,
+          content: twitterUsername || ``,
         },
         {
           name: `twitter:title`,
@@ -69,23 +73,44 @@ function SEO({ description, lang, meta, title }) {
           name: `twitter:description`,
           content: metaDescription,
         },
+        {
+          name: `twitter:image`,
+          content: metaImage,
+        },
       ].concat(meta)}
     />
   )
 }
 
+const query = graphql`
+  query {
+    site {
+      siteMetadata {
+        siteTitle: title
+        defaultDescription: description
+        defaultImage: image
+        siteURL: url
+        twitterUsername
+      }
+    }
+  }
+`
+
 SEO.defaultProps = {
   lang: `ar`,
   meta: [],
   description: ``,
+  article: false,
 }
 
 SEO.propTypes = {
   description: PropTypes.string,
+  image: PropTypes.string,
   lang: PropTypes.string,
   dir: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
+  article: PropTypes.bool,
 }
 
 export default SEO

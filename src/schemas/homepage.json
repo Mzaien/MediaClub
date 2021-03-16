@@ -1,0 +1,66 @@
+{
+  "Main": {
+    "featured_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "عنوان قسم المشاركات المميزة",
+        "placeholder": "اختر عنوانا لهذا القسم"
+      }
+    },
+    "featured_posts": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "featured_post": {
+            "type": "Link",
+            "config": {
+              "select": "document",
+              "label": "مشاركة مميزة",
+              "placeholder": "أضف مشاركة مميزة من هنا"
+            }
+          }
+        },
+        "label": "المشاركات المميزة"
+      }
+    },
+    "body": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": {
+          "_____________": [],
+          "list_of_articles": []
+        },
+        "choices": {
+          "list_of_articles": {
+            "type": "Slice",
+            "fieldset": "List of Articles",
+            "description": "Section title and article list",
+            "icon": "photo_filter",
+            "non-repeat": {
+              "title_of_section": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "heading2",
+                  "label": "Title of Section",
+                  "placeholder": "عنوان قسم المقالات"
+                }
+              }
+            },
+            "repeat": {
+              "linked_post": {
+                "type": "Link",
+                "config": {
+                  "select": "document",
+                  "label": "مشاركة أو مقال"
+                }
+              }
+            },
+            "display": "grid"
+          }
+        }
+      }
+    }
+  }
+}

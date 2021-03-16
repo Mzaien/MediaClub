@@ -19,9 +19,7 @@ import {
 import NavMenu from "./navigation-menu"
 import { FiX, FiChevronDown } from "react-icons/fi"
 import mainNavLinks from "../misc/main-navigation-links"
-import secondaryNavLinks, {
-  secondarySubLinkPrefix,
-} from "../misc/secondary-navigation-links"
+import secondaryNavLinks from "../misc/secondary-navigation-links"
 
 const NavDrawer = ({ isOpen, onClose, navContainerStyles }) => {
   const size = useBreakpointValue({
@@ -89,6 +87,10 @@ const NavDrawer = ({ isOpen, onClose, navContainerStyles }) => {
                         backgroundColor: "white",
                         _focus: {
                           boxShadow: "none",
+                          backgroundColor: "gray.200",
+                        },
+                        _hover: {
+                          backgroundColor: "gray.200",
                         },
                         color: "black",
                       }
@@ -110,7 +112,7 @@ const NavDrawer = ({ isOpen, onClose, navContainerStyles }) => {
                             menuButtonText={name}
                             menuMainItem={{ name, dest }}
                             menuItems={subLinks}
-                            menuItemsPrefix={secondarySubLinkPrefix}
+                            menuItemsPrefix="/podcast"
                             rightIcon={<FiChevronDown color="black" />}
                           />
                         </React.Fragment>

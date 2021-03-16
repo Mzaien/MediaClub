@@ -16,6 +16,9 @@ const theme = extendTheme({
             textDecoration: "underline",
           },
         }),
+        twitter: ({ colorMode }) => ({
+          color: colorMode === "light" ? "#2e6bc3" : "#1DA1F2",
+        }),
       },
     },
   },

@@ -1,0 +1,25 @@
+{
+  "Main": {
+    "name": {
+      "type": "Text",
+      "config": {
+        "label": "الاسم",
+        "placeholder": "اسم التصنيف"
+      }
+    },
+    "content_type": {
+      "type": "Text",
+      "config": {
+        "label": "تصنيف المحتوى الرئيسي",
+        "placeholder": "مثال: سجلات، بترولي، قصيد الفهد"
+      }
+    },
+    "content_type_label": {
+      "type": "Text",
+      "config": {
+        "label": "تصنيف المحتوى الفرعي",
+        "placeholder": "مثال: ملفات أكاديمية، بينيات"
+      }
+    }
+  }
+}

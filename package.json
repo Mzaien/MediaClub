@@ -28,6 +28,7 @@
     "react-helmet": "^6.1.0",
     "react-icons": "^4.2.0",
     "react-instantsearch-dom": "^6.10.3",
+    "react-player": "^2.9.0",
     "react-share": "^4.4.0"
   },
   "devDependencies": {
