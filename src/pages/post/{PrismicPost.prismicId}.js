@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
+import { withPreview } from "gatsby-source-prismic"
 import Layout from "../../components/layout"
 import SEO from "../../components/seo"
 import PostTemplate from "../../components/post-template"
@@ -57,4 +58,4 @@ export const query = graphql`
   }
 `
 
-export default PostPage
+export default withPreview(PostPage)
