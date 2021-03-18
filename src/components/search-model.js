@@ -7,28 +7,57 @@ import {
   ModalFooter,
   ModalBody,
   ModalCloseButton,
-  useDisclosure,
+  FormControl,
+  FormLabel,
+  Input,
   Button,
+  IconButton,
+  useDisclosure,
+  useColorMode,
 } from "@chakra-ui/react"
-export default function Search({ isOpen }) {
-  const {  onOpen, onClose } = useDisclosure()
+import { FiSearch } from "react-icons/fi"
+export default function Search() {
+  const { onOpen, onClose, isOpen } = useDisclosure()
+  const { colorMode, toggleColorMode } = useColorMode()
+  const initialRef = React.useRef()
+  const finalRef = React.useRef()
+
   return (
     <>
-      <Button onClick={isOpen ? onOpen : null}>Open Modal</Button>
-      <Modal isOpen={isOpen} onClose={onClose}>
+      <IconButton
+        aria-label="ابحث في الموقع"
+        icon={
+          <FiSearch
+            color={colorMode === "dark" ? "white" : "black"}
+            fontSize="6xl"
+          />
+        }
+        colorScheme="whiteAlpha"
+        mx={[1, 2]}
+        onClick={onOpen}
+      />
+      <Modal
+        initialFocusRef={initialRef}
+        finalFocusRef={finalRef}
+        isOpen={isOpen}
+        onClose={onClose}
+      >
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Modal Title</ModalHeader>
+          <ModalHeader>إبحث في موقع النادي</ModalHeader>
           <ModalCloseButton />
-          <ModalBody>
-            <p>lol</p>
+          <ModalBody pb={6}>
+            <FormControl>
+              <FormLabel>كلمة البحث</FormLabel>
+              <Input ref={initialRef} placeholder="إذاعة القران" />
+            </FormControl>
           </ModalBody>
 
-          <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={onClose}>
-              Close
+          <ModalFooter justifyContent="flex-start">
+            <Button colorScheme="blue" mr={3}>
+              إبحث
             </Button>
-            <Button variant="ghost">Secondary Action</Button>
+            <Button onClick={onClose}>Cancel</Button>
           </ModalFooter>
         </ModalContent>
       </Modal>

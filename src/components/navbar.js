@@ -1,8 +1,8 @@
-import React, { useState } from "react"
+import React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import { useColorMode } from "@chakra-ui/react"
-import { FiMenu, FiSearch, FiMoon, FiSun } from "react-icons/fi"
+import { FiMenu, FiMoon, FiSun } from "react-icons/fi"
 import {
   Container,
   List,
@@ -14,7 +14,7 @@ import {
 } from "@chakra-ui/react"
 import Img from "gatsby-image"
 import NavDrawer from "./navigation-drawer"
-// import Search from "./search-model"
+import Search from "./search-model"
 
 import navLinks from "../misc/main-navigation-links"
 
@@ -29,16 +29,12 @@ const navContainerStyles = {
 }
 
 const Navbar = ({ fluid }) => {
-  // const [openSearch,setOpenSearch]=useState(false)
   const { colorMode, toggleColorMode } = useColorMode()
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [isDesktop] = useMediaQuery("(min-width: 48em)")
 
   return (
     <>
-      {/* <Search
-      isOpen={openSearch}
-      /> */}
       <NavDrawer
         isOpen={isOpen}
         onClose={onClose}
@@ -73,18 +69,7 @@ const Navbar = ({ fluid }) => {
                 </ListItem>
               ))}
             <ListItem mr="auto" key="search-website-2">
-              <IconButton
-                aria-label="ابحث في الموقع"
-                icon={
-                  <FiSearch
-                    color={colorMode === "dark" ? "white" : "black"}
-                    fontSize="6xl"
-                  />
-                }
-                colorScheme="whiteAlpha"
-                mx={[1, 2]}
-                // onClick={setOpenSearch(!openSearch)}
-              />
+              <Search />
             </ListItem>
             <ListItem mr={3} key="open-drawer-3">
               <IconButton
