@@ -1,34 +1,71 @@
-// const escapeStringRegexp = require("escape-string-regexp")
-// const pagePath = `content`
-// const indexName = `mediaclub`
-// const pageQuery = `{
-//   allPrismicPetroliPodcast {
-//     nodes {
-//       dataRaw {
-//         body {
-//           primary {
-//             text
-//           }
-//         }
-//       }
-//       slugs
-//       type
-//     }
-//   }
-// }`
-// function pageToAlgoliaRecord({ nodes: { id,  fields, ...rest } }) {
-//   return {
-//     objectID: id,
-//     ...fields,
-//     ...rest,
-//   }
-// }
-// const queries = [
-//   {
-//     query: pageQuery,
-//     transformer: ({ data }) => data.pages.dataRaw.map(pageToAlgoliaRecord),
-//     indexName,
-//     settings: { attributesToSnippet: [`excerpt:20`] },
-//   },
-// ]
-// module.exports = queries
+const indexName = "media site"
+const query = `{
+    postsQuery: allPrismicPost {
+        nodes {
+            postId: id
+            data {
+            title {
+                text
+            }
+            content {
+                text
+            }
+            short_description
+            post_tag {
+                document {
+                    ... on PrismicTag {
+                        id
+                        data {
+                            content_type
+                        }
+                    }
+                }
+            }
+            }
+        }
+    }
+}`
+
+function postsToAlgoliaRecords({ data }) {
+  const {
+    postsQuery: { nodes: posts },
+  } = data
+
+  const records = posts.map(post => {
+    // Extract information used in Algolia records
+    const {
+      postId,
+      data: {
+        title: { text: titleText },
+        content: { text: contentText },
+        short_description,
+        post_tag: {
+          document: {
+            data: { content_type: postTag },
+          },
+        },
+      },
+    } = post
+
+    // Return an Algolia record
+    return {
+      objectID: postId, // Required field by Algolia
+      postTitle: titleText,
+      postContent: contentText,
+      postDescription: short_description,
+      postTag,
+    }
+  })
+
+  return records
+}
+
+const queries = [
+  {
+    query,
+    transformer: postsToAlgoliaRecords,
+    indexName,
+  },
+]
+
+module.exports = queries
