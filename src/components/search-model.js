@@ -14,11 +14,12 @@ import {
   IconButton,
   useDisclosure,
   useColorMode,
+  HStack,
 } from "@chakra-ui/react"
 import { FiSearch } from "react-icons/fi"
 export default function Search() {
   const { onOpen, onClose, isOpen } = useDisclosure()
-  const { colorMode, toggleColorMode } = useColorMode()
+  const { colorMode } = useColorMode()
   const initialRef = React.useRef()
   const finalRef = React.useRef()
 
@@ -52,7 +53,14 @@ export default function Search() {
               <Input ref={initialRef} placeholder="إذاعة القران" />
             </FormControl>
           </ModalBody>
-
+          <HStack>
+            <Button size="sm">
+              secondaryNavLinks
+            </Button>
+            <Button size="sm">
+              secondaryNadasdavLinks
+            </Button>
+          </HStack>
           <ModalFooter justifyContent="flex-start">
             <Button colorScheme="blue" mr={3}>
               إبحث
