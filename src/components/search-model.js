@@ -10,12 +10,14 @@ import {
   FormControl,
   FormLabel,
   Input,
-  Button,
   IconButton,
   useDisclosure,
   useColorMode,
-  HStack,
+  Box,
+  SimpleGrid,
+  Flex,
 } from "@chakra-ui/react"
+import { Link } from "gatsby"
 import { FiSearch } from "react-icons/fi"
 export default function Search() {
   const { onOpen, onClose, isOpen } = useDisclosure()
@@ -50,22 +52,125 @@ export default function Search() {
           <ModalBody pb={6}>
             <FormControl>
               <FormLabel>كلمة البحث</FormLabel>
-              <Input ref={initialRef} placeholder="إذاعة القران" />
+              <Flex>
+                <IconButton
+                  aria-label="ابحث في الموقع"
+                  icon={
+                    <FiSearch
+                      color={colorMode === "dark" ? "white" : "black"}
+                      fontSize="6xl"
+                    />
+                  }
+                  colorScheme="whiteAlpha"
+                  mx={[1, 2]}
+                  // onClick={onOpen}
+                />
+                <Input ref={initialRef} placeholder="إذاعة القران" />
+              </Flex>
             </FormControl>
           </ModalBody>
-          <HStack>
-            <Button size="sm">
+          <SimpleGrid mx={8} spacing="4" columns={1}>
+            <Box
+              as={Link}
+              to={"/"}
+              p={4}
+              borderRadius="md"
+              height="16"
+              border="2px"
+              _hover={{
+                background: "teal.400",
+                // color: "teal.50",
+              }}
+              borderColor="teal.300"
+            >
               secondaryNavLinks
-            </Button>
-            <Button size="sm">
-              secondaryNadasdavLinks
-            </Button>
-          </HStack>
+            </Box>
+            <Box
+              p={4}
+              height="16"
+              borderRadius="md"
+              border="2px"
+              borderColor="teal.300"
+            >
+              dasdasjdkl
+            </Box>
+            <Box
+              p={4}
+              height="16"
+              borderRadius="md"
+              border="2px"
+              borderColor="teal.300"
+            >
+              secondaryNavLinks
+            </Box>
+            <Box
+              p={4}
+              height="16"
+              borderRadius="md"
+              border="2px"
+              borderColor="teal.300"
+            >
+              secondaryNavLinks
+            </Box>
+            <Box
+              p={4}
+              height="16"
+              borderRadius="md"
+              border="2px"
+              borderColor="teal.300"
+            >
+              secondaryNavLinks
+            </Box>
+            <Box
+              p={4}
+              height="16"
+              borderRadius="md"
+              border="2px"
+              borderColor="teal.300"
+            >
+              secondaryNavLinks
+            </Box>
+            <Box
+              p={4}
+              height="16"
+              borderRadius="md"
+              border="2px"
+              borderColor="teal.300"
+            >
+              secondaryNavLinks
+            </Box>
+            <Box
+              p={4}
+              height="16"
+              borderRadius="md"
+              border="2px"
+              borderColor="teal.300"
+            >
+              secondaryNavLinks
+            </Box>
+            <Box
+              p={4}
+              height="16"
+              borderRadius="md"
+              border="2px"
+              borderColor="teal.300"
+            >
+              secondaryNavLinks
+            </Box>
+            <Box
+              p={4}
+              height="16"
+              borderRadius="md"
+              border="2px"
+              borderColor="teal.300"
+            >
+              secondaryNavLinks
+            </Box>
+          </SimpleGrid>
           <ModalFooter justifyContent="flex-start">
-            <Button colorScheme="blue" mr={3}>
+            {/* <Button colorScheme="blue" mr={3}>
               إبحث
-            </Button>
-            <Button onClick={onClose}>Cancel</Button>
+            </Button> */}
           </ModalFooter>
         </ModalContent>
       </Modal>
