@@ -53,6 +53,7 @@ export default function Search() {
             <FormControl>
               <FormLabel>كلمة البحث</FormLabel>
               <Flex>
+                <Input ref={initialRef} placeholder="إذاعة القران" />
                 <IconButton
                   aria-label="ابحث في الموقع"
                   icon={
@@ -65,7 +66,6 @@ export default function Search() {
                   mx={[1, 2]}
                   // onClick={onOpen}
                 />
-                <Input ref={initialRef} placeholder="إذاعة القران" />
               </Flex>
             </FormControl>
           </ModalBody>
