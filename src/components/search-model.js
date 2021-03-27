@@ -62,7 +62,6 @@ export default function Search() {
                       fontSize="6xl"
                     />
                   }
-                  colorScheme="whiteAlpha"
                   mx={[1, 2]}
                   // onClick={onOpen}
                 />
