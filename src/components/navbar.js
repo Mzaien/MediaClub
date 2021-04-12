@@ -1,5 +1,4 @@
 import React from "react"
-import PropTypes from "prop-types"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import { useColorMode } from "@chakra-ui/react"
 import { FiMenu, FiSearch, FiMoon, FiSun } from "react-icons/fi"
@@ -12,8 +11,8 @@ import {
   useDisclosure,
   useMediaQuery,
 } from "@chakra-ui/react"
-import Img from "gatsby-image"
 import NavDrawer from "./navigation-drawer"
+import logo from "../images/media-club-logo.png"
 
 const navContainerStyles = {
   maxW: "md",
@@ -25,7 +24,7 @@ const navContainerStyles = {
   },
 }
 
-const Navbar = ({ fluid }) => {
+const Navbar = () => {
   const data = useStaticQuery(graphql`
     {
       site {
@@ -61,7 +60,7 @@ const Navbar = ({ fluid }) => {
             <ListItem ml={5} key="home-page-1">
               <Link aria-label="الصفحة الرئيسية" to="/">
                 <Box boxSize="sm" w="3rem" h="3rem">
-                  <Img fluid={fluid} alt="شعار النادي الإعلامي" />
+                  <img src={logo} alt="شعار النادي الإعلامي" />
                 </Box>
               </Link>
             </ListItem>
@@ -125,10 +124,6 @@ const Navbar = ({ fluid }) => {
       </nav>
     </>
   )
-}
-
-Navbar.propTypes = {
-  fluid: PropTypes.object.isRequired,
 }
 
 export default Navbar

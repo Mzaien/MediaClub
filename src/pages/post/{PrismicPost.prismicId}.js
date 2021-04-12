@@ -44,6 +44,7 @@ export const query = graphql`
     prismicPost(id: { eq: $id }) {
       ...PostTemplate
       ...AllRecommendedPosts
+      ...PostTag
     }
 
     site {
