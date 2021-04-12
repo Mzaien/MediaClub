@@ -1,25 +1,26 @@
 import React from "react"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import PropTypes from "prop-types"
 import { Link } from "gatsby"
+import SEO from "../components/seo"
+import Layout from "../components/layout"
 import { Button, SimpleGrid, Text } from "@chakra-ui/react"
-import secondaryNavLinks from "../misc/secondary-navigation-links"
 
-const pageUrls = secondaryNavLinks.filter(
-  item => item.name === "إذاعة البترول"
-)[0].subLinks
+const ContentTypeTemplate = ({ pageContext }) => {
+  const {
+    subLinks,
+    meta: { title },
+  } = pageContext
 
-const PetrolPodcast = () => {
   return (
     <Layout>
-      <SEO title="إذاعة البترول" />
+      <SEO title={title} />
       <SimpleGrid
         columns={[2, null, 3]}
         spacing={[4, null, 8]}
         maxW="45rem"
         mx="auto"
       >
-        {pageUrls.map((link, index) => (
+        {subLinks.map((link, index) => (
           <Button
             aria-label="Link"
             h="5rem"
@@ -35,4 +36,13 @@ const PetrolPodcast = () => {
   )
 }
 
-export default PetrolPodcast
+ContentTypeTemplate.propTypes = {
+  pageContext: PropTypes.shape({
+    subLinks: PropTypes.array.isRequired,
+    meta: PropTypes.shape({
+      title: PropTypes.string.isRequired,
+    }).isRequired,
+  }).isRequired,
+}
+
+export default ContentTypeTemplate

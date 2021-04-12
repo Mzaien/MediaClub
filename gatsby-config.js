@@ -6,9 +6,26 @@ module.exports = {
     title: `النادي الإعلامي`,
     description: `موقع النادي الإعلامي في جامعة الملك فهد للبترول والمعادن.`,
     author: `النادي الإعلامي`, // Used in post page
-    url: `https://media-club.mzaien.vercel.app`, // TODO: Should change when deployed to production
+    /**
+     * @todo Should change URL when deployed to production
+     */
+    url: `https://media-club.mzaien.vercel.app`,
     image: `/images/media-club-logo.png`,
     twitterUsername: `@MediaKfupm`,
+    mainNavigationLinks: [
+      {
+        name: "عن النادي",
+        dest: "/about",
+      },
+      {
+        name: "الانضمام للنادي",
+        dest: "/join-us",
+      },
+      {
+        name: "تواصل معنا",
+        dest: "/contact-us",
+      },
+    ],
   },
   plugins: [
     {
@@ -52,6 +69,7 @@ module.exports = {
           homepage: require("./src/schemas/homepage.json"),
           post: require("./src/schemas/post.json"),
           tag: require("./src/schemas/tag.json"),
+          navigation: require("./src/schemas/navigation.json"),
         },
       },
     },

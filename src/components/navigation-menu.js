@@ -26,7 +26,7 @@ const NavMenu = ({
           {menuButtonText}
         </MenuButton>
         <MenuList>
-          <MenuItem as={Link} to={menuMainItem.dest}>
+          <MenuItem as={Link} to={`/${menuMainItem.dest}`}>
             {menuMainItem.name}
           </MenuItem>
           <MenuDivider />

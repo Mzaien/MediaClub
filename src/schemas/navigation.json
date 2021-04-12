@@ -1,0 +1,38 @@
+{
+  "Main": {
+    "nav": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "choices": {
+          "nav_item": {
+            "type": "Slice",
+            "fieldset": "Nav Item",
+            "description": "Nav Item with Sub Navigation",
+            "icon": "insert_link",
+            "non-repeat": {
+              "primary_link_label": {
+                "type": "Text",
+                "config": {
+                  "label": "Primary Link Label*",
+                  "placeholder": "Enter a label for the primary link (e.g. إذاعة البترول)"
+                }
+              }
+            },
+            "repeat": {
+              "sub_link_label": {
+                "type": "Link",
+                "config": {
+                  "select": "document",
+                  "customtypes": ["tag"],
+                  "label": "Sub Link Label",
+                  "placeholder": "Enter a label for the sub link (e.g. سجلات is a sub link of إذاعة البترول)"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

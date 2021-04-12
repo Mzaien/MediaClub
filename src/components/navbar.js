@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { Link } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
 import { useColorMode } from "@chakra-ui/react"
 import { FiMenu, FiSearch, FiMoon, FiSun } from "react-icons/fi"
 import {
@@ -15,8 +15,6 @@ import {
 import Img from "gatsby-image"
 import NavDrawer from "./navigation-drawer"
 
-import navLinks from "../misc/main-navigation-links"
-
 const navContainerStyles = {
   maxW: "md",
   py: 3,
@@ -28,6 +26,23 @@ const navContainerStyles = {
 }
 
 const Navbar = ({ fluid }) => {
+  const data = useStaticQuery(graphql`
+    {
+      site {
+        siteMetadata {
+          mainNavigationLinks {
+            name
+            dest
+          }
+        }
+      }
+    }
+  `)
+  const {
+    site: {
+      siteMetadata: { mainNavigationLinks },
+    },
+  } = data
   const { colorMode, toggleColorMode } = useColorMode()
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [isDesktop] = useMediaQuery("(min-width: 48em)")
@@ -38,6 +53,7 @@ const Navbar = ({ fluid }) => {
         isOpen={isOpen}
         onClose={onClose}
         navContainerStyles={navContainerStyles}
+        mainNavigationLinks={mainNavigationLinks}
       />
       <nav>
         <Container {...navContainerStyles}>
@@ -50,7 +66,7 @@ const Navbar = ({ fluid }) => {
               </Link>
             </ListItem>
             {isDesktop &&
-              navLinks.map((item, index) => (
+              mainNavigationLinks.map((item, index) => (
                 <ListItem key={item.name + index} px={4}>
                   <Box
                     as={Link}

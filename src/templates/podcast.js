@@ -41,6 +41,7 @@ Podcast.propTypes = {
     tags: PropTypes.array,
     meta: PropTypes.shape({
       title: PropTypes.string.isRequired,
+      parentType: PropTypes.string,
     }).isRequired,
   }),
 }

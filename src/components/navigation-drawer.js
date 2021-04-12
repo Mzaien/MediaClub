@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { Link } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
 import {
   Drawer,
   DrawerBody,
@@ -18,10 +18,46 @@ import {
 } from "@chakra-ui/react"
 import NavMenu from "./navigation-menu"
 import { FiX, FiChevronDown } from "react-icons/fi"
-import mainNavLinks from "../misc/main-navigation-links"
-import secondaryNavLinks from "../misc/secondary-navigation-links"
+import getNavLinks from "../utils/get-nav-links"
 
-const NavDrawer = ({ isOpen, onClose, navContainerStyles }) => {
+const NavDrawer = ({
+  isOpen,
+  onClose,
+  navContainerStyles,
+  mainNavigationLinks,
+}) => {
+  const data = useStaticQuery(graphql`
+    {
+      prismicNavigation {
+        data {
+          nav {
+            ... on PrismicNavigationNavNavItem {
+              primary {
+                primary_link_label
+              }
+              items {
+                sub_link_label {
+                  document {
+                    ... on PrismicTag {
+                      ...TagInfo
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
+  const {
+    prismicNavigation: {
+      data: { nav: navigationItems },
+    },
+  } = data
+
+  const navLinks = getNavLinks(navigationItems)
+
   const size = useBreakpointValue({
     base: "full",
     md: "xs",
@@ -58,7 +94,7 @@ const NavDrawer = ({ isOpen, onClose, navContainerStyles }) => {
             <Box overflowY="auto" d="flex" flexDir="column" h="full">
               {!isDesktop && (
                 <VStack spacing={10} mb={10}>
-                  {mainNavLinks.map((item, index) => (
+                  {mainNavigationLinks.map((item, index) => (
                     <Box
                       as={Link}
                       to={item.dest}
@@ -80,7 +116,7 @@ const NavDrawer = ({ isOpen, onClose, navContainerStyles }) => {
                 justify="center"
               >
                 {isDesktop
-                  ? secondaryNavLinks.map((item, index) => {
+                  ? navLinks.map((item, index) => {
                       const { name, dest, subLinks } = item
 
                       const navButtonStyles = {
@@ -95,11 +131,11 @@ const NavDrawer = ({ isOpen, onClose, navContainerStyles }) => {
                         color: "black",
                       }
 
-                      return !subLinks ? (
+                      return subLinks?.length === 0 ? (
                         <Button
                           aria-label="SubLink"
                           as={Link}
-                          to={dest}
+                          to={`/${dest}`}
                           {...navButtonStyles}
                           key={item.name + index}
                         >
@@ -118,10 +154,10 @@ const NavDrawer = ({ isOpen, onClose, navContainerStyles }) => {
                         </React.Fragment>
                       )
                     })
-                  : secondaryNavLinks.map((item, index) => (
+                  : navLinks.map((item, index) => (
                       <Box
                         as={Link}
-                        to={item.dest}
+                        to={`/${item.dest}`}
                         fontSize="sm"
                         fontWeight="600"
                         key={item.name + index}
@@ -142,6 +178,7 @@ NavDrawer.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
   navContainerStyles: PropTypes.object.isRequired,
+  mainNavigationLinks: PropTypes.array.isRequired,
 }
 
 export default NavDrawer
