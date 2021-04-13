@@ -1,6 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { graphql } from "gatsby"
+import { Heading, Text } from "@chakra-ui/react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import ListOfPosts from "../components/list-of-posts"
@@ -13,7 +14,10 @@ const Podcast = ({ data, pageContext: { meta } }) => {
   return (
     <Layout>
       <SEO title={meta.title} />
-      <ListOfPosts title={meta.title} posts={posts} />
+      <Heading as="h1" my={6} textAlign="center">
+        {meta.title}
+      </Heading>
+      <ListOfPosts posts={posts} columns={2} />
     </Layout>
   )
 }
@@ -38,7 +42,7 @@ Podcast.propTypes = {
     }).isRequired,
   }).isRequired,
   pageContext: PropTypes.shape({
-    tags: PropTypes.array,
+    podcastSubTags: PropTypes.array,
     meta: PropTypes.shape({
       title: PropTypes.string.isRequired,
       parentType: PropTypes.string,

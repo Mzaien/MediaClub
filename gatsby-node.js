@@ -76,12 +76,15 @@ function createPodcastPages(navLinks, tags, createPage) {
       const tagsStringArray = podcastTags.map(
         filteredTag => filteredTag.prismicId
       )
+      const podcastSubTags = podcastTags
+        .map(podcastTag => podcastTag.data.content_type_label)
+        .filter(podcastTag => podcastTag !== null)
 
       createPage({
         path,
         component: podcastTemplate,
         context: {
-          tags: podcastTags,
+          podcastSubTags,
           tagsStringArray,
           meta: {
             parentType: mainContentTypeName,
