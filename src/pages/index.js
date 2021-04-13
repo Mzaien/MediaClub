@@ -21,6 +21,7 @@ export const query = graphql`
   {
     postsQuery: allPrismicPost(
       sort: { fields: first_publication_date, order: DESC }
+      limit: 20
     ) {
       nodes {
         ...PostTag

@@ -14,16 +14,11 @@ const ContentTypeTemplate = ({ pageContext }) => {
   return (
     <Layout>
       <SEO title={title} />
-      <SimpleGrid
-        columns={[2, null, 3]}
-        spacing={[4, null, 8]}
-        maxW="45rem"
-        mx="auto"
-      >
+      <SimpleGrid columns={[1, 2, 3]} spacing={4} mx="auto">
         {subLinks.map((link, index) => (
           <Button
             aria-label="Link"
-            h="5rem"
+            h="6rem"
             as={Link}
             to={`/podcast/${link.dest}`}
             key={link.name + index}

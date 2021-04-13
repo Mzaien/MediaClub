@@ -26,6 +26,7 @@ export const query = graphql`
   query($tagsStringArray: [ID]) {
     postsQuery: allPrismicPost(
       filter: { data: { post_tag: { id: { in: $tagsStringArray } } } }
+      sort: { fields: first_publication_date, order: DESC }
     ) {
       nodes {
         ...PostCard
