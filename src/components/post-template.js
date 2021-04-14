@@ -43,7 +43,6 @@ const PostTemplate = ({ post, postMetaData, recommendedPosts }) => {
   ]
 
   return (
-    // <Box mt={[6, 14, 12]}>
     <Box mt={[3, 7, 6]}>
       <PostBreadcrumb breadcrumbLinks={breadcrumbLinks} />
       <Box as="article" mt={5}>
@@ -58,7 +57,7 @@ const PostTemplate = ({ post, postMetaData, recommendedPosts }) => {
           main_image={main_image}
           main_image_alt={main_image.alt || title.text}
         />
-        <Share url={url} title={title} />
+        <Share url={url} title={title.text} twitterUsername={twitterUsername} />
         <SimpleGrid
           gridTemplateColumns={["1fr", null, "150px 1fr"]}
           my={5}

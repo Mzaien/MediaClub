@@ -1,10 +1,11 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-import { Container } from "@chakra-ui/react"
+import { Box, Container } from "@chakra-ui/react"
 import Fonts from "./fonts"
 
 import Header from "./header"
+import Footer from "./footer"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -12,21 +13,31 @@ const Layout = ({ children }) => {
       site {
         siteMetadata {
           title
+          mainNavigationLinks {
+            name
+            dest
+          }
+          twitterUsername
         }
       }
     }
   `)
 
+  const { title, mainNavigationLinks, twitterUsername } =
+    data.site.siteMetadata || {}
+
   return (
     <>
       <Fonts />
-      <Header siteTitle={data.site.siteMetadata?.title || `العنوان`} />
-      <main>
-        <Container maxW="md" my={5}>
-          {children}
-        </Container>
-      </main>
-      <footer></footer>
+      <Header siteTitle={title || `النادي الإعلامي`} />
+      <Box d="flex" flexDirection="column" minHeight="100vh">
+        <Box as="main" flexGrow="1">
+          <Container maxW="md" my={5}>
+            {children}
+          </Container>
+        </Box>
+        <Footer links={mainNavigationLinks} twitter={twitterUsername} />
+      </Box>
     </>
   )
 }

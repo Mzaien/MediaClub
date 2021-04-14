@@ -22,6 +22,10 @@ const ListOfPosts = ({ title, posts, columns = 1 }) => {
   )
 }
 
+ListOfPosts.defaultProps = {
+  columns: 1,
+}
+
 ListOfPosts.propTypes = {
   title: PropTypes.string,
   posts: PropTypes.array.isRequired,

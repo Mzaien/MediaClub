@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { graphql } from "gatsby"
-import { Heading, Text } from "@chakra-ui/react"
+import { Heading } from "@chakra-ui/react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import ListOfPosts from "../components/list-of-posts"
@@ -23,9 +23,9 @@ const Podcast = ({ data, pageContext: { meta } }) => {
 }
 
 export const query = graphql`
-  query($tagsStringArray: [ID]) {
+  query($subTagIDs: [ID]) {
     postsQuery: allPrismicPost(
-      filter: { data: { post_tag: { id: { in: $tagsStringArray } } } }
+      filter: { data: { post_tag: { id: { in: $subTagIDs } } } }
       sort: { fields: first_publication_date, order: DESC }
     ) {
       nodes {
