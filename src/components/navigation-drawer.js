@@ -100,7 +100,7 @@ const NavDrawer = ({
                       to={item.dest}
                       key={item.name + index}
                       fontSize="xl"
-                      fontWeight="600"
+                      fontWeight="900"
                     >
                       {item.name}
                     </Box>
@@ -109,7 +109,7 @@ const NavDrawer = ({
               )}
               <Stack
                 spacing={[8, null, 16]}
-                mt="auto"
+                mt="10rem"
                 mb={[10, null, 0]}
                 direction={["column", null, "row"]}
                 align="center"
@@ -158,7 +158,7 @@ const NavDrawer = ({
                       <Box
                         as={Link}
                         to={`/${item.dest}`}
-                        fontSize="sm"
+                        fontSize="md"
                         fontWeight="600"
                         key={item.name + index}
                       >
