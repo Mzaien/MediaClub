@@ -1,6 +1,6 @@
 require("dotenv").config()
 const linkResolver = require("./src/utils/linkResolver")
-
+require("dotenv").config()
 module.exports = {
   siteMetadata: {
     title: `النادي الإعلامي`,
@@ -28,6 +28,14 @@ module.exports = {
     ],
   },
   plugins: [
+    // {
+    //   resolve: `gatsby-plugin-algolia`,
+    //   options: {
+    //     appId: process.env.GATSBY_ALGOLIA_APP_ID,
+    //     apiKey: process.env.ALGOLIA_ADMIN_KEY,
+    //     queries: require("./src/utils/algolia-queries"),
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-page-creator`,
       options: {

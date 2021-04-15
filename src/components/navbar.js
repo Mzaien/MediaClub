@@ -1,7 +1,7 @@
 import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import { useColorMode } from "@chakra-ui/react"
-import { FiMenu, FiSearch, FiMoon, FiSun } from "react-icons/fi"
+import { FiMenu, FiMoon, FiSun } from "react-icons/fi"
 import {
   Container,
   List,
@@ -13,6 +13,9 @@ import {
 } from "@chakra-ui/react"
 import NavDrawer from "./navigation-drawer"
 import logo from "../images/media-club-logo.png"
+import Search from "./search-model"
+
+import navLinks from "../misc/main-navigation-links"
 
 const navContainerStyles = {
   maxW: "md",
@@ -83,17 +86,7 @@ const Navbar = () => {
                 </ListItem>
               ))}
             <ListItem mr="auto" key="search-website-2">
-              <IconButton
-                aria-label="ابحث في الموقع"
-                icon={
-                  <FiSearch
-                    color={colorMode === "dark" ? "white" : "black"}
-                    fontSize="6xl"
-                  />
-                }
-                colorScheme="whiteAlpha"
-                mx={[1, 2]}
-              />
+              <Search />
             </ListItem>
             <ListItem mr={3} key="open-drawer-3">
               <IconButton
