@@ -15,7 +15,7 @@ import NavDrawer from "./navigation-drawer"
 import logo from "../images/media-club-logo.png"
 import Search from "./search-model"
 
-import navLinks from "../misc/main-navigation-links"
+// import navLinks from "../misc/main-navigation-links"
 
 const navContainerStyles = {
   maxW: "md",
