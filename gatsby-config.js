@@ -2,6 +2,7 @@ require("dotenv").config()
 const linkResolver = require("./src/utils/linkResolver")
 require("dotenv").config()
 module.exports = {
+  flags: { PRESERVE_WEBPACK_CACHE: true },
   siteMetadata: {
     title: `النادي الإعلامي`,
     description: `موقع النادي الإعلامي في جامعة الملك فهد للبترول والمعادن.`,
@@ -57,15 +58,15 @@ module.exports = {
       resolve: `@chakra-ui/gatsby-plugin`,
       options: {
         /**
-         * @property {boolean} [isResettingCSS=true]
+         * @property {boolean} [resetCSS=true]
          * if false, this plugin will not use `<CSSReset />
          */
-        isResettingCSS: true,
-        /**
-         * @property {boolean} [isUsingColorMode=true]
-         * if false, this plugin will not use <ColorModeProvider />
-         */
-        isUsingColorMode: true,
+        resetCSS: true,
+        // /**
+        //  * @property {boolean} [isUsingColorMode=true]
+        //  * if false, this plugin will not use <ColorModeProvider />
+        //  */
+        // isUsingColorMode: true,
       },
     },
     {
