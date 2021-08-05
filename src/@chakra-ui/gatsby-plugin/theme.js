@@ -25,6 +25,13 @@ const theme = extendTheme({
 
   styles: {
     global: () => ({
+      body: {
+        "-webkit-transition": "none !important",
+        "-moz-transition": "none !important",
+        "-o-transition": "none !important",
+        "-ms-transition": "none !important",
+        transition: "none !important",
+      },
       h1: {
         fontSize: ["4xl", null, "5xl"],
         lineHeight: 1.3,
