@@ -15,8 +15,6 @@ import NavDrawer from "./navigation-drawer"
 import logo from "../images/media-club-logo.png"
 import Search from "./search-model"
 
-
-
 const navContainerStyles = {
   maxW: "md",
   py: 3,
@@ -88,6 +86,16 @@ const Navbar = () => {
             <ListItem mr="auto" key="search-website-2">
               <Search />
             </ListItem>
+            <ListItem mr={3} key="light-dark-toggol">
+              <IconButton
+                aria-label="غير النمط"
+                as="button"
+                onClick={toggleColorMode}
+                align="center"
+                icon={colorMode === "dark" ? <FiMoon /> : <FiSun />}
+                mx={[1, 2]}
+              />
+            </ListItem>
             <ListItem mr={3} key="open-drawer-3">
               <IconButton
                 aria-label="افتح التنقل الثانوي"
@@ -100,16 +108,6 @@ const Navbar = () => {
                 colorScheme="whiteAlpha"
                 mx={[1, 2]}
                 onClick={onOpen}
-              />
-            </ListItem>
-            <ListItem mr={3} key="light-dark-toggol">
-              <IconButton
-                aria-label="غير النمط"
-                as="button"
-                onClick={toggleColorMode}
-                align="center"
-                icon={colorMode === "dark" ? <FiMoon /> : <FiSun />}
-                mx={[1, 2]}
               />
             </ListItem>
           </List>
