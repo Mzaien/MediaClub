@@ -109,7 +109,6 @@ const NavDrawer = ({
               )}
               <Stack
                 spacing={[8, null, 16]}
-                mt={!isDesktop ? "6rem" : "2rem"}
                 mb={[10, null, 0]}
                 direction={["column", null, "row"]}
                 align="center"
