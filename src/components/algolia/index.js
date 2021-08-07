@@ -24,7 +24,6 @@ const searchClient = {
     return algoliaClient.search(requests)
   },
 }
-
 const AlgoliaSearch = () => {
   return (
     <InstantSearch searchClient={searchClient} indexName={indexName}>
@@ -34,10 +33,16 @@ const AlgoliaSearch = () => {
         <SearchInput />
       </FormControl>
       <SearchResults />
-      <Flex justifyContent="flex-end" mt={6}>
+      <Flex
+        justifyContent="flex-start"
+        mt={6}
+        bg="whiteAlpha.100"
+        p={2}
+        borderRadius={4}
+      >
         <PoweredBy
           translations={{
-            searchBy: "",
+            searchBy: "بواسطة ",
           }}
         />
       </Flex>
