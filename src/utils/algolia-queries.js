@@ -1,8 +1,10 @@
-const indexName = "media site"
+const indexName = require("../components/algolia/indexName")
+
 const query = `{
     postsQuery: allPrismicPost {
         nodes {
             postId: id
+            postPath: gatsbyPath(filePath: "/post/{PrismicPost.prismicId}")
             data {
             title {
                 text
@@ -34,6 +36,7 @@ function postsToAlgoliaRecords({ data }) {
   const records = posts.map(post => {
     // Extract information used in Algolia records
     const {
+      postPath,
       postId,
       data: {
         title: { text: titleText },
@@ -53,6 +56,7 @@ function postsToAlgoliaRecords({ data }) {
       postTitle: titleText,
       postContent: contentText,
       postDescription: short_description,
+      postPath,
       postTag,
     }
   })
