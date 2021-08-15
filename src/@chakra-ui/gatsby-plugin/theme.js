@@ -26,10 +26,10 @@ const theme = extendTheme({
   styles: {
     global: () => ({
       body: {
-        "-webkit-transition": "none !important",
-        "-moz-transition": "none !important",
-        "-o-transition": "none !important",
-        "-ms-transition": "none !important",
+        WebkitTransition: "none !important",
+        MozTransition: "none !important",
+        OTransition: "none !important",
+        msTransition: "none !important",
         transition: "none !important",
       },
       h1: {
