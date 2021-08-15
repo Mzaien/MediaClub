@@ -46,6 +46,7 @@ module.exports = {
         },
       },
     },
+    `gatsby-plugin-emotion`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -69,6 +70,7 @@ module.exports = {
         // isUsingColorMode: true,
       },
     },
+
     {
       resolve: "gatsby-source-prismic",
       options: {
