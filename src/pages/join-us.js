@@ -56,7 +56,12 @@ const JoinUsPage = () => {
           </FormControl>
           <FormControl isRequired>
             <FormLabel htmlFor="student id">رقمك الجامعي</FormLabel>
-            <Input type="number" placeholder="202153450" name="student id" />
+            <Input
+              type="number"
+              placeholder="202153450"
+              minlength="9"
+              name="student id"
+            />
           </FormControl>
           <FormControl isRequired>
             <FormLabel htmlFor="Mobile number">رقم جوالك</FormLabel>
@@ -64,6 +69,8 @@ const JoinUsPage = () => {
               type="tel"
               placeholder="+966590177070"
               name="mobile number"
+              minlength="10"
+              maxlength="14"
             />
           </FormControl>
           <FormControl isRequired>
