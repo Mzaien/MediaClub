@@ -70,7 +70,6 @@ const JoinUsPage = () => {
               placeholder="+966590177070"
               name="mobile number"
               minlength="10"
-              maxlength="14"
             />
           </FormControl>
           <FormControl isRequired>
