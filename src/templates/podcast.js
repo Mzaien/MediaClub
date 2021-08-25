@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import { graphql } from "gatsby"
 import { Heading } from "@chakra-ui/react"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import ListOfPosts from "../components/list-of-posts"
 
 const Podcast = ({ data, pageContext: { meta } }) => {
@@ -13,7 +13,7 @@ const Podcast = ({ data, pageContext: { meta } }) => {
 
   return (
     <Layout>
-      <SEO title={meta.title} />
+      <Seo title={meta.title} />
       <Heading as="h1" my={6} textAlign="center">
         {meta.title}
       </Heading>
@@ -23,7 +23,7 @@ const Podcast = ({ data, pageContext: { meta } }) => {
 }
 
 export const query = graphql`
-  query($subTagIDs: [ID]) {
+  query ($subTagIDs: [ID]) {
     postsQuery: allPrismicPost(
       filter: { data: { post_tag: { id: { in: $subTagIDs } } } }
       sort: { fields: first_publication_date, order: DESC }

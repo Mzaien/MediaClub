@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import Layout from "../components/layout"
 import { Button, SimpleGrid, Text } from "@chakra-ui/react"
 
@@ -13,7 +13,7 @@ const ContentTypeTemplate = ({ pageContext }) => {
 
   return (
     <Layout>
-      <SEO title={title} />
+      <Seo title={title} />
       <SimpleGrid columns={[1, 2, 3]} spacing={4} mx="auto">
         {subLinks.map((link, index) => (
           <Button

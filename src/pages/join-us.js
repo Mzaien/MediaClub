@@ -13,7 +13,7 @@ import {
   SimpleGrid,
 } from "@chakra-ui/react"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import YouTubePlayer from "react-player/youtube"
 const JoinUsPage = () => {
   const FORMSPARK_ACTION_URL = "https://submit-form.com/yiVEQZ6W"
@@ -23,7 +23,7 @@ const JoinUsPage = () => {
   const ChakraYTPlayer = chakra(YouTubePlayer)
   return (
     <Layout>
-      <SEO title="الانضمام للنادي" />
+      <Seo title="الانضمام للنادي" />
       <Heading as="h1"> 🚀 انضم للنادي</Heading>
       <ChakraYTPlayer
         mt={4}
