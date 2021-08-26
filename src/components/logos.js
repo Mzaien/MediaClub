@@ -18,7 +18,7 @@ export default function logos() {
         mx={4}
         gap={4}
         mt={4}
-        columns={[1, 2, 3, 4]}
+        columns={[1, 2, 3]}
         justifyItems="center"
         justifyContent="space-evenly"
         alignContent="space-evenly"
@@ -27,64 +27,70 @@ export default function logos() {
         <Link to="podcast/هنيهة">
           <Box
             padding={4}
-            borderRadius={8}
-            boxSize={"185px"}
+            borderRadius={12}
+            zoom={1}
             as="img"
             src={logo1}
-            bg="whiteAlpha.600"
+            bg="whitesmoke"
+            border="8px"
+            borderColor="teal"
+            boxSize="200px"
+            objectFit="contain"
           />
         </Link>
         <Link to="podcast/آيات/">
           <Box
             padding={4}
-            borderRadius={8}
-            boxSize={"185px"}
+            borderRadius={12}
             as="img"
             src={logo2}
-            bg="whiteAlpha.600"
+            bg="whitesmoke"
+            border="8px"
+            borderColor="teal"
+            boxSize="200px"
+            objectFit="contain"
           />
         </Link>
         <Link to="podcast/سجلات/">
           <Box
             padding={4}
-            borderRadius={8}
-            boxSize={"185px"}
+            borderRadius={12}
             as="img"
             src={logo4}
-            bg="whiteAlpha.600"
+            bg="whitesmoke"
+            border="8px"
+            borderColor="teal"
+            boxSize="200px"
+            objectFit="cover"
           />
         </Link>
         <Link to="podcast/تركات-جامعية/">
           <Box
             padding={4}
-            borderRadius={8}
-            boxSize={"185px"}
+            borderRadius={12}
             as="img"
             src={logo5}
-            bg="whiteAlpha.600"
+            bg="whitesmoke"
+            border="8px"
+            borderColor="teal"
+            boxSize="200px"
+            objectFit="cover"
           />
         </Link>
         <Link to="podcast/ساندويتش-التخصصات">
           <Box
             padding={4}
-            borderRadius={8}
-            boxSize={"185px"}
+            borderRadius={12}
             as="img"
             src={logo6}
-            bg="whiteAlpha.600"
+            bg="whitesmoke"
+            border="8px"
+            borderColor="teal"
+            boxSize="200px"
+            objectFit="contain"
           />
         </Link>
-        <Box
-          padding={4}
-          borderRadius={8}
-          boxSize={"185px"}
-          as="h3"
-          bg="whiteAlpha.600"
-          textAlign="center"
-          alignSelf="center"
-          alignContent="center"
-          alignItems="center"
-        >
+        <Box paddingY={16} borderRadius={12} as="h3" textAlign="center">
           🚀 والكثير من البرامج الأخرى
         </Box>
       </SimpleGrid>

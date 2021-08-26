@@ -23,7 +23,7 @@ const IndexPage = ({ data }) => {
       <br />
       <h2 style={{ textAlign: "center" }}>
         {" "}
-        أهلا بكم في النادي الاعلامي حيث الجديد والفريد🤫
+        رسول في خدمة الطلاب والجامعة والمجتمع
       </h2>
       <Flex justifyContent="center" marginTop={"12"}>
         {/* <Button marginX={4} as={Link} href="#ourapps">
