@@ -1,13 +1,13 @@
 import React from "react"
-import { Box, SimpleGrid, Heading } from "@chakra-ui/react"
+import { Box, SimpleGrid, Heading, useColorMode } from "@chakra-ui/react"
 import logo1 from "../images/هنيهة.png"
 import logo2 from "../images/ayat.png"
-import logo3 from "../images/ediah.png"
 import logo4 from "../images/SAJLATn.png"
 import logo5 from "../images/trikat.png"
 import logo6 from "../images/sandwich.png"
 import { Link } from "gatsby"
-export default function logos() {
+export default function Logos() {
+  const { colorMode } = useColorMode()
   return (
     <>
       <Heading as="h2" fontSize="2xl" fontWeight="bold" mt={16}>
@@ -31,9 +31,9 @@ export default function logos() {
             zoom={1}
             as="img"
             src={logo1}
-            bg="whitesmoke"
+            bg={colorMode === "dark" ? "whitesmoke" : "transparent"}
             border="8px"
-            borderColor="teal"
+            borderColor="teal.400"
             boxSize="200px"
             objectFit="contain"
           />
@@ -44,9 +44,9 @@ export default function logos() {
             borderRadius={12}
             as="img"
             src={logo2}
-            bg="whitesmoke"
+            bg={colorMode === "dark" ? "whitesmoke" : "transparent"}
             border="8px"
-            borderColor="teal"
+            borderColor="teal.400"
             boxSize="200px"
             objectFit="contain"
           />
@@ -57,9 +57,9 @@ export default function logos() {
             borderRadius={12}
             as="img"
             src={logo4}
-            bg="whitesmoke"
+            bg={colorMode === "dark" ? "whitesmoke" : "transparent"}
             border="8px"
-            borderColor="teal"
+            borderColor="teal.400"
             boxSize="200px"
             objectFit="cover"
           />
@@ -70,9 +70,9 @@ export default function logos() {
             borderRadius={12}
             as="img"
             src={logo5}
-            bg="whitesmoke"
+            bg={colorMode === "dark" ? "whitesmoke" : "transparent"}
             border="8px"
-            borderColor="teal"
+            borderColor="teal.400"
             boxSize="200px"
             objectFit="cover"
           />
@@ -83,9 +83,9 @@ export default function logos() {
             borderRadius={12}
             as="img"
             src={logo6}
-            bg="whitesmoke"
+            bg={colorMode === "dark" ? "whitesmoke" : "transparent"}
             border="8px"
-            borderColor="teal"
+            borderColor="teal.400"
             boxSize="200px"
             objectFit="contain"
           />
