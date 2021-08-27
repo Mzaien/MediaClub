@@ -1,7 +1,8 @@
 import React from "react"
 import { Link as GatsbyLink } from "gatsby"
 import { Box, Stack, Link } from "@chakra-ui/react"
-import { RiTwitterFill } from "react-icons/ri"
+import { RiTwitterFill, RiInstagramFill } from "react-icons/ri"
+import { MdEmail } from "react-icons/md"
 import PropTypes from "prop-types"
 
 const Footer = ({ links, twitter }) => {
@@ -32,6 +33,22 @@ const Footer = ({ links, twitter }) => {
             rel="noopener"
           >
             <RiTwitterFill size="1.5rem" />
+          </Link>
+          <Link
+            href={`https://www.instagram.com/${twitter}`}
+            aria-label="حساب تويتر"
+            target="_blank"
+            rel="noopener"
+          >
+            <RiInstagramFill size="1.5rem" />
+          </Link>
+          <Link
+            href={`mailto:MediaKfupm@gmail.com`}
+            aria-label="حساب تويتر"
+            target="_blank"
+            rel="noopener"
+          >
+            <MdEmail size="1.5rem" />
           </Link>
         </Stack>
       </Stack>
