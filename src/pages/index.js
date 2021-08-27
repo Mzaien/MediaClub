@@ -3,7 +3,7 @@ import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import Logos from "../components/logos"
 import Seo from "../components/seo"
-import ListOfPosts from "../components/list-of-posts"
+// import Recomannded from "./components/recomannded"
 import { Button, Flex } from "@chakra-ui/react"
 const IndexPage = ({ data }) => {
   const {
@@ -43,7 +43,7 @@ const IndexPage = ({ data }) => {
         </Button>
       </Flex>
       <Logos />
-      {/* <ListOfPosts title="جديد النادي الإعلامي" posts={allPosts} /> */}
+      {/* <Recomannded recommendedPosts={recommendedPosts} /> */}
     </Layout>
   )
 }
