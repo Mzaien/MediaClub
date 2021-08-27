@@ -1,5 +1,11 @@
 import React from "react"
-import { Box, SimpleGrid, Heading, useColorMode } from "@chakra-ui/react"
+import {
+  Box,
+  SimpleGrid,
+  Heading,
+  useColorMode,
+  SlideFade,
+} from "@chakra-ui/react"
 import logo1 from "../images/هنيهة.png"
 import logo2 from "../images/ayat.png"
 import logo4 from "../images/SAJLATn.png"
@@ -9,7 +15,16 @@ import { Link } from "gatsby"
 export default function Logos() {
   const { colorMode } = useColorMode()
   return (
-    <>
+    <SlideFade
+      in={true}
+      offsetY="20px"
+      offsetX="90px"
+      transition={{
+        delay: 1,
+        x: { type: "spring", stiffness: 100 },
+        default: { duration: 2 },
+      }}
+    >
       <Heading as="h2" fontSize="2xl" fontWeight="bold" mt={16}>
         برامجنا
       </Heading>
@@ -91,9 +106,9 @@ export default function Logos() {
           />
         </Link>
         <Box paddingY={16} borderRadius={12} as="h3" textAlign="center">
-          🚀 والكثير من البرامج الأخرى
+          والكثير من البرامج الأخرى🚀
         </Box>
       </SimpleGrid>
-    </>
+    </SlideFade>
   )
 }
