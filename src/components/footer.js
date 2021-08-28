@@ -32,19 +32,19 @@ const Footer = ({ links, twitter }) => {
             target="_blank"
             rel="noopener"
           >
-            <RiTwitterFill size="1.5rem" />
+            <RiTwitterFill size="1.5rem" color="#1DA1F2" />
           </Link>
           <Link
             href={`https://www.instagram.com/${twitter}`}
-            aria-label="حساب تويتر"
+            aria-label="حساب انستاقرام"
             target="_blank"
             rel="noopener"
           >
-            <RiInstagramFill size="1.5rem" />
+            <RiInstagramFill size="1.5rem" color="#8a3ab9" />
           </Link>
           <Link
             href={`mailto:MediaKfupm@gmail.com`}
-            aria-label="حساب تويتر"
+            aria-label="الايميل "
             target="_blank"
             rel="noopener"
           >
