@@ -32,7 +32,7 @@ const Footer = ({ links, twitter }) => {
             target="_blank"
             rel="noopener"
           >
-            <RiTwitterFill size="1.5rem" color="#1DA1F2" />
+            <RiTwitterFill size="1.5rem" />
           </Link>
           <Link
             href={`https://www.instagram.com/${twitter}`}
@@ -40,7 +40,7 @@ const Footer = ({ links, twitter }) => {
             target="_blank"
             rel="noopener"
           >
-            <RiInstagramFill size="1.5rem" color="#8a3ab9" />
+            <RiInstagramFill size="1.5rem" />
           </Link>
           <Link
             href={`mailto:MediaKfupm@gmail.com`}

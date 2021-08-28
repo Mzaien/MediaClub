@@ -54,7 +54,7 @@ const ContactUsPage = () => {
           target="_blank"
           rel="noopener"
         >
-          <RiTwitterFill size="2.5rem" color="#1DA1F2" />
+          <RiTwitterFill size="2.5rem" />
         </Link>
         <Link
           href={`https://www.instagram.com/MediaKfupm`}
@@ -62,7 +62,7 @@ const ContactUsPage = () => {
           target="_blank"
           rel="noopener"
         >
-          <RiInstagramFill size="2.5rem" color="#8a3ab9" />
+          <RiInstagramFill size="2.5rem" />
         </Link>
         <Link
           href={`mailto:MediaKfupm@gmail.com`}

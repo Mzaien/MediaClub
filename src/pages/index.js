@@ -31,12 +31,14 @@ const IndexPage = ({ data }) => {
         </Button> */}
         <Button
           marginX={4}
-          bgGradient="linear(to-r, #7928CA, #FF0080)"
+          bg="#1DA1F2"
+          // bgGradient="linear(to-r, #1DA1F2, #1DA1D1)"
           as={Link}
           to={`/join-us`}
           _hover={{
             transform: "scale(1.4)",
             transition: "all 0.2s ease-in-out",
+            bg: "#1DA1F2",
           }}
         >
           حياك معنا 🤩
