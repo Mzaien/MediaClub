@@ -26,7 +26,7 @@ const ContactUsPage = () => {
         <input
           type="hidden"
           name="_redirect"
-          value="https://media-club.vercel.app/%D8%B4%D9%83%D8%B1%D8%A7/"
+          value="https://www.mckfupm.com/%D8%B4%D9%83%D8%B1%D8%A7/"
         />
         <FormControl isRequired>
           <FormLabel htmlFor="name">إيميل التواصل</FormLabel>
