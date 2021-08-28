@@ -1,17 +1,16 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { Box, Heading, useColorMode, SimpleGrid } from "@chakra-ui/react"
+import { Box, Heading, SimpleGrid } from "@chakra-ui/react"
 import { RichText } from "prismic-reactjs"
 import Share from "./share-list"
 import PostHeaderContent from "./post-header-content"
 import htmlSerializer from "../utils/htmlSerializer"
 import PostMetaData from "./post-meta-data"
-import PostRecommended from "./post-recommended-card"
 import PostBreadcrumb from "./post-breadcrumb"
 import slugifyDashes from "../utils/slugify-dashes"
+import Recomannded from "./recomannded"
 
 const PostTemplate = ({ post, postMetaData, recommendedPosts }) => {
-  const { colorMode } = useColorMode()
   const {
     data: {
       title,
@@ -75,28 +74,7 @@ const PostTemplate = ({ post, postMetaData, recommendedPosts }) => {
         </SimpleGrid>
 
         {recommendedPosts && (
-          <section>
-            <Heading
-              as="h3"
-              py={5}
-              mt={10}
-              borderTop={
-                colorMode === "dark" ? "3px solid white" : "3px solid black"
-              }
-            >
-              مواضيع مشابهة
-            </Heading>
-            <SimpleGrid minChildWidth="18rem" spacing={5}>
-              {recommendedPosts.map(post => (
-                <PostRecommended
-                  key={post.id}
-                  title={post.data.title.text}
-                  postImage={post.data.main_image.url}
-                  postPath={post.postPath}
-                />
-              ))}
-            </SimpleGrid>
-          </section>
+          <Recomannded recommendedPosts={recommendedPosts} />
         )}
       </Box>
     </Box>

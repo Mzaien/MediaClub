@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import { withPreview } from "gatsby-source-prismic"
 import Layout from "../../components/layout"
-import SEO from "../../components/seo"
+import Seo from "../../components/seo"
 import PostTemplate from "../../components/post-template"
 
 const PostPage = ({ data }) => {
@@ -24,7 +24,7 @@ const PostPage = ({ data }) => {
 
   return (
     <Layout>
-      <SEO
+      <Seo
         title={title.text}
         description={short_description || content.text}
         image={main_image.url}
@@ -40,7 +40,7 @@ const PostPage = ({ data }) => {
 }
 
 export const query = graphql`
-  query($id: String) {
+  query ($id: String) {
     prismicPost(id: { eq: $id }) {
       ...PostTemplate
       ...AllRecommendedPosts

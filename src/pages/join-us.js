@@ -13,17 +13,16 @@ import {
   SimpleGrid,
 } from "@chakra-ui/react"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import YouTubePlayer from "react-player/youtube"
 const JoinUsPage = () => {
-  const FORMSPARK_ACTION_URL = "https://submit-form.com/yiVEQZ6W"
-  // const FORMSPARK_ACTION_URL = "https://submit-form.com/AK4r0KN7"
+  const FORMSPARK_ACTION_URL = process.env.FORMSPARK_ACTION_URL_1
   const YT_VID_URL =
     "https://www.youtube.com/watch?time_continue=7&v=VN-1_JmSjFw&feature=emb_title"
   const ChakraYTPlayer = chakra(YouTubePlayer)
   return (
     <Layout>
-      <SEO title="الانضمام للنادي" />
+      <Seo title="الانضمام للنادي" />
       <Heading as="h1"> 🚀 انضم للنادي</Heading>
       <ChakraYTPlayer
         mt={4}
@@ -48,7 +47,7 @@ const JoinUsPage = () => {
           <input
             type="hidden"
             name="_redirect"
-            value="https://media-club.vercel.app/%D8%B4%D9%83%D8%B1%D8%A7/"
+            value="https://www.mckfupm.com/%D8%B4%D9%83%D8%B1%D8%A7/"
           />
           <FormControl isRequired>
             <FormLabel htmlFor="name">الاسم الثلاثي</FormLabel>
@@ -67,7 +66,7 @@ const JoinUsPage = () => {
             <FormLabel htmlFor="Mobile number">رقم جوالك</FormLabel>
             <Input
               type="tel"
-              placeholder="+966590177070"
+              placeholder="+9665654770"
               name="mobile number"
               minlength="10"
             />
