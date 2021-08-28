@@ -39,7 +39,7 @@ export default function Logos() {
         alignContent="space-evenly"
         alignItems="center"
       >
-        <Link to="podcast/هنيهة">
+        <Link to="podcast/بودكاست-هُنيهة">
           <Box
             padding={4}
             borderRadius={12}
@@ -53,7 +53,7 @@ export default function Logos() {
             objectFit="contain"
           />
         </Link>
-        <Link to="podcast/آيات/">
+        <Link to="podcast/إذاعة-آيات">
           <Box
             padding={4}
             borderRadius={12}
@@ -66,7 +66,7 @@ export default function Logos() {
             objectFit="contain"
           />
         </Link>
-        <Link to="podcast/سجلات/">
+        <Link to="podcast/بودكاست-سجلات">
           <Box
             padding={4}
             borderRadius={12}
@@ -79,7 +79,7 @@ export default function Logos() {
             objectFit="cover"
           />
         </Link>
-        <Link to="podcast/تركات-جامعية/">
+        <Link to="podcast/بودكاست-تركات-جامعية">
           <Box
             padding={4}
             borderRadius={12}
@@ -92,7 +92,7 @@ export default function Logos() {
             objectFit="cover"
           />
         </Link>
-        <Link to="podcast/ساندويتش-التخصصات">
+        <Link to="podcast/بودكاست-ساندويتش-التخصصات">
           <Box
             padding={4}
             borderRadius={12}
