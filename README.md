@@ -8,6 +8,8 @@ This is a website made for Media Club made with these technologies :
 - Algolia as the search engine
 - And some more react libraries to enhance the experience
 
+[View it here](https://www.mckfupm.com/)
+
 Proudly made by :
 
 [Waleed AlFaifi](https://github.com/waleed-alfaifi)
