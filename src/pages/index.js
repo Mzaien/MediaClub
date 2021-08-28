@@ -6,9 +6,9 @@ import Seo from "../components/seo"
 // import Recomannded from "./components/recomannded"
 import { Button, Flex } from "@chakra-ui/react"
 const IndexPage = ({ data }) => {
-  const {
-    postsQuery: { nodes: allPosts },
-  } = data
+  // const {
+  //   postsQuery: { nodes: allPosts },
+  // } = data
 
   return (
     <Layout>
