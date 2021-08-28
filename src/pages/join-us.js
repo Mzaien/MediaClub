@@ -16,7 +16,7 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import YouTubePlayer from "react-player/youtube"
 const JoinUsPage = () => {
-  const FORMSPARK_ACTION_URL = "https://submit-form.com/yiVEQZ6W"
+  const FORMSPARK_ACTION_URL = process.env.FORMSPARK_ACTION_URL_1
   const YT_VID_URL =
     "https://www.youtube.com/watch?time_continue=7&v=VN-1_JmSjFw&feature=emb_title"
   const ChakraYTPlayer = chakra(YouTubePlayer)
