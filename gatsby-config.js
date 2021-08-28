@@ -10,7 +10,8 @@ module.exports = {
     /**
      * @todo Should change URL when deployed to production
      */
-    url: `https://media-club.mzaien.vercel.app`,
+    url: `https://www.mckfupm.com/`,
+    
     image: `/images/media-club-logo.png`,
     twitterUsername: `@MediaKfupm`,
     mainNavigationLinks: [
