@@ -3,12 +3,12 @@ import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import Logos from "../components/logos"
 import Seo from "../components/seo"
-// import Recomannded from "./components/recomannded"
+import Recomannded from "../components/recomannded"
 import { Button, Flex } from "@chakra-ui/react"
 const IndexPage = ({ data }) => {
-  // const {
-  //   postsQuery: { nodes: allPosts },
-  // } = data
+  const {
+    postsQuery: { nodes: recentPosts },
+  } = data
 
   return (
     <Layout>
@@ -45,7 +45,7 @@ const IndexPage = ({ data }) => {
         </Button>
       </Flex>
       <Logos />
-      {/* <Recomannded recommendedPosts={recommendedPosts} /> */}
+      <Recomannded recommendedPosts={recentPosts} title="جديدنا" noline />
     </Layout>
   )
 }
@@ -54,7 +54,7 @@ export const query = graphql`
   {
     postsQuery: allPrismicPost(
       sort: { fields: first_publication_date, order: DESC }
-      limit: 20
+      limit: 4
     ) {
       nodes {
         ...PostTag
