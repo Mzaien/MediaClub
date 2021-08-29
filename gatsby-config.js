@@ -89,8 +89,8 @@ module.exports = {
         name: `موقع النادي الإعلامي`,
         short_name: `MCKfupm`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#5eada4`,
+        theme_color: `#5eada4`,
         display: `minimal-ui`,
         icon: `src/images/media-club-logo.png`, // This path is relative to the root of the site.
       },
