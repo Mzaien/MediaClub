@@ -16,7 +16,7 @@ const PostTemplate = ({ post, postMetaData, recommendedPosts }) => {
       title,
       content,
       main_image,
-      embed_link: { embed_url, provider_name },
+      embed_link: { embed_url, provider_name, thumbnail_url },
       post_tag,
     },
     formattedPubDate,
@@ -55,6 +55,7 @@ const PostTemplate = ({ post, postMetaData, recommendedPosts }) => {
           embed_url={embed_url}
           main_image={main_image}
           main_image_alt={main_image.alt || title.text}
+          thumbnail_url={thumbnail_url}
         />
         <Share url={url} title={title.text} twitterUsername={twitterUsername} />
         <SimpleGrid
@@ -82,7 +83,7 @@ const PostTemplate = ({ post, postMetaData, recommendedPosts }) => {
 }
 
 /**
- * TODO: Specify properties of the object
+ * See fragment `PostTemplate` in the src/fragments/posts.js file for post properties
  */
 PostTemplate.propTypes = {
   post: PropTypes.object.isRequired,

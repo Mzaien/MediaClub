@@ -10,7 +10,10 @@ const PostHeaderContent = ({
   embed_url,
   main_image,
   main_image_alt,
+  thumbnail_url,
 }) => {
+  const placeholderImage = main_image.url || thumbnail_url
+
   if (provider_name === "YouTube") {
     const ChakraYTPlayer = chakra(YouTubePlayer)
     return (
@@ -22,7 +25,7 @@ const PostHeaderContent = ({
           md: "300px !important",
           lg: "500px !important",
         }}
-        light={main_image.url}
+        light={placeholderImage}
         playing
         config={{
           youtube: {
@@ -46,7 +49,7 @@ const PostHeaderContent = ({
           md: "300px !important",
           lg: "500px !important",
         }}
-        light={main_image.url}
+        light={placeholderImage}
         playing
       />
     )
@@ -66,6 +69,7 @@ PostHeaderContent.propTypes = {
   embed_url: PropTypes.string.isRequired,
   main_image: PropTypes.object.isRequired,
   main_image_alt: PropTypes.string.isRequired,
+  thumbnail_url: PropTypes.string,
 }
 
 export default PostHeaderContent

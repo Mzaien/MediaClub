@@ -91,7 +91,7 @@ const PostCard = ({ post, alternativeTag, isVertical }) => {
 }
 
 /**
- * TODO: Specify properties of the object
+ * See fragment `PostCard` in the src/fragments/posts.js file for post properties
  */
 PostCard.propTypes = {
   post: PropTypes.object.isRequired,

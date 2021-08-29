@@ -18,14 +18,24 @@ function Recomannded({ recommendedPosts, title, noline }) {
         {title ? title : "مواضيع مشابهة"}
       </Heading>
       <SimpleGrid minChildWidth="18rem" spacing={5}>
-        {recommendedPosts.map(post => (
-          <PostRecommended
-            key={post.id}
-            title={post.data.title.text}
-            postImage={post.data.main_image.url}
-            postPath={post.postPath}
-          />
-        ))}
+        {recommendedPosts.map(post => {
+          const {
+            title,
+            main_image,
+            embed_link: { thumbnail_url },
+          } = post.data
+
+          const postImage = main_image.url || thumbnail_url
+
+          return (
+            <PostRecommended
+              key={post.id}
+              title={title.text}
+              postImage={postImage}
+              postPath={post.postPath}
+            />
+          )
+        })}
       </SimpleGrid>
     </section>
   )

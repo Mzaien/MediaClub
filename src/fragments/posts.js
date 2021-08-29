@@ -52,6 +52,7 @@ export const query = graphql`
       embed_link {
         embed_url
         provider_name
+        thumbnail_url
       }
     }
   }
@@ -102,6 +103,9 @@ export const query = graphql`
       }
       main_image {
         url
+      }
+      embed_link {
+        thumbnail_url
       }
     }
     postPath: gatsbyPath(filePath: "/post/{PrismicPost.prismicId}")
