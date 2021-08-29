@@ -4,7 +4,7 @@ import Layout from "../components/layout"
 import Logos from "../components/logos"
 import Seo from "../components/seo"
 import Recomannded from "../components/recomannded"
-import { Button, Flex } from "@chakra-ui/react"
+import { Button, Flex, Text } from "@chakra-ui/react"
 const IndexPage = ({ data }) => {
   const {
     postsQuery: { nodes: recentPosts },
@@ -26,9 +26,6 @@ const IndexPage = ({ data }) => {
         رسول في خدمة الطلاب والجامعة والمجتمع
       </h2>
       <Flex justifyContent="center" marginTop={"12"}>
-        {/* <Button marginX={4} as={Link} href="#ourapps">
-          برامجنا
-        </Button> */}
         <Button
           marginX={4}
           bg="#1DA1F2"
@@ -41,8 +38,16 @@ const IndexPage = ({ data }) => {
             bg: "#1DA1F2",
           }}
         >
-          حياك معنا 🤩
+          إنظم للنادي
         </Button>
+      </Flex>
+      <Flex justifyContent="center" marginTop={"12"} align="center">
+        <Text fontSize="1.5rem">
+          نادي ثاني في الجامعة ؟ ودكم تشاركوا محتواكم الفخم؟{" "}
+          <Link style={{ color: "#1DA1F2" }} to={`/contact-us`}>
+            حياكم 🤝
+          </Link>
+        </Text>
       </Flex>
       <Logos />
       <Recomannded recommendedPosts={recentPosts} title="جديدنا" noline />
