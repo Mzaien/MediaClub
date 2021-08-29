@@ -60,7 +60,7 @@ const Navbar = () => {
           <List d="flex" alignItems="center" justifyContent="center">
             <ListItem ml={5} key="home-page-1">
               <Link aria-label="الصفحة الرئيسية" to="/">
-                <Box boxSize="sm" w="3rem" h="3rem">
+                <Box boxSize="6rem">
                   <img src={logo} alt="شعار النادي الإعلامي" />
                 </Box>
               </Link>
