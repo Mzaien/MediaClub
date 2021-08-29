@@ -5,6 +5,7 @@ import Logos from "../components/logos"
 import Seo from "../components/seo"
 import Recomannded from "../components/recomannded"
 import { Button, Flex, Text } from "@chakra-ui/react"
+import illus from "../images/Saly-19.svg"
 const IndexPage = ({ data }) => {
   const {
     postsQuery: { nodes: recentPosts },
@@ -25,11 +26,21 @@ const IndexPage = ({ data }) => {
         {" "}
         رسول في خدمة الطلاب والجامعة والمجتمع
       </h2>
+      <img
+        src={illus}
+        alt="illus"
+        loading="lazy"
+        style={{
+          position: "static",
+          width: "50%",
+          height: "50%",
+          margin: "0 auto",
+        }}
+      />
       <Flex justifyContent="center" marginTop={"12"}>
         <Button
           marginX={4}
           bg="#1DA1F2"
-          // bgGradient="linear(to-r, #1DA1F2, #1DA1D1)"
           as={Link}
           to={`/join-us`}
           _hover={{
@@ -38,7 +49,7 @@ const IndexPage = ({ data }) => {
             bg: "#1DA1F2",
           }}
         >
-          إنظم للنادي
+          انظم للنادي
         </Button>
       </Flex>
       <Flex justifyContent="center" marginTop={"12"} align="center">
