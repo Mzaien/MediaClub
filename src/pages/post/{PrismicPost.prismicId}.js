@@ -8,7 +8,13 @@ import PostTemplate from "../../components/post-template"
 const PostPage = ({ data }) => {
   const post = data.prismicPost
   const { postMetaData } = data.site
-  const { title, content, main_image, short_description } = post.data
+  const {
+    title,
+    content,
+    main_image,
+    short_description,
+    embed_link: { thumbnail_url },
+  } = post.data
   const { recommendedPostsData } = post
   const { nodes: defaultRecommendedPosts } = data.defaultRecommended
 
@@ -27,7 +33,7 @@ const PostPage = ({ data }) => {
       <Seo
         title={title.text}
         description={short_description || content.text}
-        image={main_image.url}
+        image={main_image.url || thumbnail_url}
         article
       />
       <PostTemplate

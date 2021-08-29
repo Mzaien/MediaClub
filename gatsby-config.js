@@ -2,16 +2,12 @@ require("dotenv").config()
 const linkResolver = require("./src/utils/linkResolver")
 require("dotenv").config()
 module.exports = {
-  flags: {DEV_WEBPACK_CACHE: true },
+  flags: { DEV_WEBPACK_CACHE: true },
   siteMetadata: {
     title: `النادي الإعلامي`,
     description: `موقع النادي الإعلامي في جامعة الملك فهد للبترول والمعادن.`,
     author: `النادي الإعلامي`, // Used in post page
-    /**
-     * @todo Should change URL when deployed to production
-     */
     url: `https://www.mckfupm.com/`,
-    
     image: `/images/media-club-logo.png`,
     twitterUsername: `@MediaKfupm`,
     mainNavigationLinks: [
@@ -90,8 +86,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `موقع النادي الإعلامي`,
+        short_name: `MCKfupm`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
