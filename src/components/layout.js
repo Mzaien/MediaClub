@@ -23,8 +23,10 @@ const Layout = ({ children }) => {
     }
   `)
 
-  const { title, mainNavigationLinks, twitterUsername } =
+  let { title, mainNavigationLinks, twitterUsername } =
     data.site.siteMetadata || {}
+
+  twitterUsername = twitterUsername.replace("@", "")
 
   return (
     <>
