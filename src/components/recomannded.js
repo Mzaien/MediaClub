@@ -22,8 +22,9 @@ function Recomannded({ recommendedPosts, title, noline }) {
           const {
             title,
             main_image,
-            embed_link: { postImage },
+            embed_link: { thumbnail_url },
           } = post.data
+
           const postImage = main_image.url || thumbnail_url
 
           return (

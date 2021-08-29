@@ -13,9 +13,9 @@ const PostPage = ({ data }) => {
     content,
     main_image,
     short_description,
-    embed_link: { postImage },
+    embed_link: { thumbnail_url },
   } = post.data
-  const postImage = main_image.url || thumbnail_url
+  
   const { recommendedPostsData } = post
   const { nodes: defaultRecommendedPosts } = data.defaultRecommended
 
