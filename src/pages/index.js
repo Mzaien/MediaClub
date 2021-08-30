@@ -31,9 +31,9 @@ const IndexPage = ({ data }) => {
         alt="illus"
         style={{
           position: "static",
-          width: "50%",
-          height: "50%",
-          margin: "0 auto",
+          width: "100%",
+          height: "auto",
+          objectFit: "cover",
         }}
       />
       <Flex justifyContent="center" marginTop={"12"}>
