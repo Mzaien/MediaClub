@@ -26,7 +26,7 @@ const AboutPage = () => {
       <img
         src={illus}
         alt="illus"
-        loading="lazy"
+        loading="eager"
         style={{
           position: "static",
           width: "50%",
