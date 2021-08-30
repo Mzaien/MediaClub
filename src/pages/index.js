@@ -29,7 +29,6 @@ const IndexPage = ({ data }) => {
       <img
         src={illus}
         alt="illus"
-        loading="lazy"
         style={{
           position: "static",
           width: "50%",
