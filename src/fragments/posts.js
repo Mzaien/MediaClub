@@ -83,6 +83,7 @@ export const query = graphql`
           id
           recommendedPosts: items {
             recommended_post {
+              isBroken
               document {
                 ... on PrismicPost {
                   ...PostRecommended
