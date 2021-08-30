@@ -49,7 +49,7 @@ const IndexPage = ({ data }) => {
             bg: "#1DA1F2",
           }}
         >
-          انظم للنادي
+          انضم للنادي
         </Button>
       </Flex>
       <Flex justifyContent="center" marginTop={"12"} align="center">
