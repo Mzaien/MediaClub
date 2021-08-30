@@ -22,12 +22,18 @@ const PostPage = ({ data }) => {
   const postRecommendedPosts =
     recommendedPostsData.body.length === 0
       ? defaultRecommendedPosts
-      : recommendedPostsData.body[0].recommendedPosts.map(post => {
+      : recommendedPostsData.body[0].recommendedPosts.flatMap(post => {
           const {
-            recommended_post: { document },
+            recommended_post: { document, isBroken },
           } = post
+
+          // Filter out posts with broken links
+          if (isBroken) {
+            return []
+          }
+
           return document
-        }) // P.S. Thank you Prismic for making the schema this complex.
+        })
 
   return (
     <Layout>
