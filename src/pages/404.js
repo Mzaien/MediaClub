@@ -10,7 +10,9 @@ const NotFoundPage = () => (
   <Layout>
     <Seo title="الصفحة غير موجودة" />
     <h1>عذرا، الصفحة التي طلبتها غير موجودة</h1>
-    <Link to="/">العودة إلى الصفحة الرئيسية</Link>,
+    <Link to="/" style={{ color: "#1DA1F2", textAlign: "center" }}>
+      العودة إلى الصفحة الرئيسية
+    </Link>
   </Layout>
 )
 
