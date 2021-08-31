@@ -1,6 +1,5 @@
 require("dotenv").config()
 const linkResolver = require("./src/utils/linkResolver")
-require("dotenv").config()
 module.exports = {
   flags: { DEV_WEBPACK_CACHE: true },
   siteMetadata: {

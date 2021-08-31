@@ -13,7 +13,7 @@ import { RiTwitterFill, RiInstagramFill } from "react-icons/ri"
 import { MdEmail } from "react-icons/md"
 import { Link } from "gatsby"
 const ContactUsPage = () => {
-  const FORMSPARK_ACTION_URL = process.env.FORMSPARK_ACTION_URL_2
+  const FORMSPARK_ACTION_URL = process.env.GATSBY_FORMSPARK_ACTION_URL_2
   return (
     <Layout>
       <Seo title="تواصل معنا" />
