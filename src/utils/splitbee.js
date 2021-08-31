@@ -9,7 +9,7 @@ splitbee.init({
     // Enable cookie-less mode. Defaults to `false`
     disableCookie: false,
     
-    // Set custom urls when using proxying
-    scriptUrl: "https://cdn.splitbee.io/sb.js",
-    apiUrl: "https://hive.splitbee.io",
+    // // Set custom urls when using proxying
+    // scriptUrl: "https://cdn.splitbee.io/sb.js",
+    // apiUrl: "https://hive.splitbee.io",
   })
