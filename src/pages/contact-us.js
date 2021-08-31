@@ -41,6 +41,7 @@ const ContactUsPage = () => {
         </Button>
       </form>
       <Stack isInline flexGrow="1" spacing={5} justifyContent="center" mt="10">
+        حسابات التواصل الاخرى
         <Link
           href={`https://twitter.com/MediaKfupm`}
           aria-label="حساب تويتر"
