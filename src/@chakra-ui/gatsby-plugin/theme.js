@@ -31,9 +31,6 @@ const theme = extendTheme({
         OTransition: "none !important",
         msTransition: "none !important",
         transition: "none !important",
-        fontSmooothing: "none",
-        WebkitFontSmoothing: "none",
-        MozOsxFontSmoothing: "none",
       },
       h1: {
         fontSize: ["4xl", null, "5xl"],
