@@ -80,20 +80,20 @@ function Seo({ description, lang, meta, title, image, article }) {
       ].concat(meta)}
     >
       <script async src="https://cdn.splitbee.io/sb.js"></script>
-{
-  <script type="application/ld+json">
-    {JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "Project",
-    "name": "MediaclubSite",
-    "alternateName": "mckfupm.com",
-    "url": "https://mckfupm.com/",
-    "logo": "https://www.mckfupm.com/static/media-club-logo-2b8dd393f7a3e0bbfe186b3bd3ac6e24.png",
-      "sameAs": [
-        "https://twitter.com/MediaKfupm",
-        "https://www.youtube.com/channel/UCyX-aDx9h-_pOnwYF66WYUw"
-     ]
-  })}
+
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Project",
+          name: "MediaclubSite",
+          alternateName: "mckfupm.com",
+          url: "https://mckfupm.com/",
+          logo: "https://www.mckfupm.com/static/media-club-logo-2b8dd393f7a3e0bbfe186b3bd3ac6e24.png",
+          sameAs: [
+            "https://twitter.com/MediaKfupm",
+            "https://www.youtube.com/channel/UCyX-aDx9h-_pOnwYF66WYUw",
+          ],
+        })}
       </script>
     </Helmet>
   )
