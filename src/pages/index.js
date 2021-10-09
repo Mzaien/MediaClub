@@ -61,7 +61,7 @@ const IndexPage = ({ data }) => {
         </Text>
       </Flex>
       <Logos />
-      <Recomannded recommendedPosts={recentPosts} title="جديدنا" noline />
+      <Recomannded gridLayout recommendedPosts={recentPosts} title="جديدنا" noline />
     </Layout>
   )
 }
@@ -70,7 +70,7 @@ export const query = graphql`
   {
     postsQuery: allPrismicPost(
       sort: { fields: first_publication_date, order: DESC }
-      limit: 4
+      limit: 6
     ) {
       nodes {
         ...PostTag
