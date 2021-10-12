@@ -69,7 +69,7 @@ const PostTemplate = ({ post, postMetaData, recommendedPosts }) => {
             author={author}
             twitterUsername={twitterUsername}
           />
-          <Box fontSize="lg">
+          <Box fontSize={["md","lg","xl"]}  maxW={["xs","md","xl"]}>
             <RichText render={content.raw} htmlSerializer={htmlSerializer} />
           </Box>
         </SimpleGrid>
