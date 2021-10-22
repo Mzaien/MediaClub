@@ -1,7 +1,7 @@
 require("dotenv").config()
 const linkResolver = require("./src/utils/linkResolver")
 module.exports = {
-  flags: { DEV_WEBPACK_CACHE: true },
+  flags: {},
   siteMetadata: {
     title: `النادي الإعلامي`,
     description: `موقع النادي الإعلامي في جامعة الملك فهد للبترول والمعادن.`,
