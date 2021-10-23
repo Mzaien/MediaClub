@@ -80,7 +80,7 @@ function Seo({ description, lang, meta, title, image, article }) {
       ].concat(meta)}
     >
       <script async src="https://cdn.splitbee.io/sb.js"></script>
-
+      <script src="https://unpkg.com/@botpoison/browser"></script>
       <script type="application/ld+json">
         {JSON.stringify({
           "@context": "https://schema.org",

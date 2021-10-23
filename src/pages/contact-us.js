@@ -22,7 +22,11 @@ const ContactUsPage = () => {
         عندك موضوع او سؤال مهم ؟ ابد خذ راحتك و اسألنا بهذا النموذج
       </section>
       <br />
-      <form method="POST" action={FORMSPARK_ACTION_URL}>
+      <form
+        method="POST"
+        action={FORMSPARK_ACTION_URL}
+        data-botpoison-public-key={process.env.GATSBY_BOTPOSIN_PUBLICKEY}
+      >
         <input
           type="hidden"
           name="_redirect"
