@@ -51,7 +51,6 @@ export default function Logos() {
               alt="برنامج هنيهة"
               placeholder="blurred"
               width={200}
-              height={200}
             />
           </Box>
         </Link>
