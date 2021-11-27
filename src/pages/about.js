@@ -1,7 +1,6 @@
 import React from "react"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import illus from "../images/Saly-20.svg"
 const AboutPage = () => {
   return (
     <Layout>
@@ -23,17 +22,6 @@ const AboutPage = () => {
         <br />
         <p>ومنصة الجبل شو هي المنصة المختصة بالبرامج المرئية المختلفة.</p>
       </section>
-      <img
-        src={illus}
-        alt="illus"
-        loading="eager"
-        style={{
-          position: "static",
-          width: "50%",
-          height: "50%",
-          margin: "0 auto",
-        }}
-      />
     </Layout>
   )
 }
