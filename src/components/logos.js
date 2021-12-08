@@ -50,7 +50,8 @@ export default function Logos() {
               src="../images/هنيهة.png"
               alt="برنامج هنيهة"
               placeholder="blurred"
-              width={200}
+              width={120}
+              height={150}
             />
           </Box>
         </Link>
