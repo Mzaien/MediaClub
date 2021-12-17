@@ -5,7 +5,8 @@ import Logos from "../components/logos"
 import Seo from "../components/seo"
 import Recomannded from "../components/recomannded"
 import { Button, Flex, Text } from "@chakra-ui/react"
-import illus from "../images/Saly-19.svg"
+import { StaticImage } from "gatsby-plugin-image"
+
 const IndexPage = ({ data }) => {
   const {
     postsQuery: { nodes: recentPosts },
@@ -26,16 +27,10 @@ const IndexPage = ({ data }) => {
         {" "}
         رسول في خدمة الطلاب والجامعة والمجتمع
       </h2>
-      <img
-        src={illus}
-        alt="illus"
-        loading="eager"
-        style={{
-          position: "static",
-          width: "100%",
-          height: "auto",
-          objectFit: "cover",
-        }}
+      <StaticImage
+        src="../images/Saly-19.svg"
+        alt="landing page image"
+        placeholder="blurred"
       />
       <Flex justifyContent="center" marginTop={"12"}>
         <Button
@@ -61,7 +56,12 @@ const IndexPage = ({ data }) => {
         </Text>
       </Flex>
       <Logos />
-      <Recomannded gridLayout recommendedPosts={recentPosts} title="جديدنا" noline />
+      <Recomannded
+        gridLayout
+        recommendedPosts={recentPosts}
+        title="جديدنا"
+        noline
+      />
     </Layout>
   )
 }

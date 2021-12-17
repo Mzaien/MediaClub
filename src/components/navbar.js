@@ -12,8 +12,8 @@ import {
   useMediaQuery,
 } from "@chakra-ui/react"
 import NavDrawer from "./navigation-drawer"
-import logo from "../images/media-club-logo.png"
 import Search from "./search-model"
+import { StaticImage } from "gatsby-plugin-image"
 
 const navContainerStyles = {
   maxW: "md",
@@ -61,7 +61,11 @@ const Navbar = () => {
             <ListItem ml={5} key="home-page-1">
               <Link aria-label="الصفحة الرئيسية" to="/">
                 <Box boxSize="6rem">
-                  <img src={logo} alt="شعار النادي الإعلامي" />
+                  <StaticImage
+                    src="../images/media-club-logo.png"
+                    alt="شعار النادي الإعلامي"
+                    placeholder="blurred"
+                  />
                 </Box>
               </Link>
             </ListItem>

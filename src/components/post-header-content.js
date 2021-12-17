@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { chakra } from "@chakra-ui/react"
-import Img from "gatsby-image"
+import { StaticImage } from "gatsby-plugin-image"
 import YouTubePlayer from "react-player/youtube"
 import SoundCloudPlayer from "react-player/soundcloud"
 
@@ -55,7 +55,18 @@ const PostHeaderContent = ({
     )
   }
   if (main_image.fluid) {
-    return <Img fluid={main_image.fluid} alt={main_image_alt} />
+    return (
+      <StaticImage
+        src={main_image.url || thumbnail_url}
+        alt={main_image_alt}
+        placeholder="blurred"
+        style={{
+          borderRadius: "inherit",
+          height: "100%",
+          borderRadius: "inherit",
+        }}
+      />
+    )
   }
 
   /**
