@@ -6,11 +6,7 @@ import {
   useColorMode,
   SlideFade,
 } from "@chakra-ui/react"
-import logo1 from "../images/هنيهة.png"
-import logo2 from "../images/ayat.png"
-import logo4 from "../images/SAJLATn.png"
-import logo5 from "../images/trikat.png"
-import logo6 from "../images/sandwich.png"
+import { StaticImage } from "gatsby-plugin-image"
 import { Link } from "gatsby"
 export default function Logos() {
   const { colorMode } = useColorMode()
@@ -44,66 +40,96 @@ export default function Logos() {
             padding={4}
             borderRadius={12}
             zoom={1}
-            as="img"
-            src={logo1}
             bg={colorMode === "dark" ? "whitesmoke" : "transparent"}
             border="8px"
             borderColor="teal.400"
             boxSize="200px"
             objectFit="contain"
-          />
+          >
+            <StaticImage
+              src="../images/هنيهة.png"
+              alt="برنامج هنيهة"
+              placeholder="blurred"
+              width={120}
+              height={150}
+            />
+          </Box>
         </Link>
         <Link to="podcast/إذاعة-آيات">
           <Box
             padding={4}
             borderRadius={12}
-            as="img"
-            src={logo2}
             bg={colorMode === "dark" ? "whitesmoke" : "transparent"}
             border="8px"
             borderColor="teal.400"
             boxSize="200px"
             objectFit="contain"
-          />
+          >
+            <StaticImage
+              src="../images/ayat.png"
+              alt="برنامج ايات"
+              placeholder="blurred"
+              width={200}
+              height={200}
+            />
+          </Box>
         </Link>
         <Link to="podcast/بودكاست-سجلات">
           <Box
             padding={4}
             borderRadius={12}
-            as="img"
-            src={logo4}
             bg={colorMode === "dark" ? "whitesmoke" : "transparent"}
             border="8px"
             borderColor="teal.400"
             boxSize="200px"
             objectFit="cover"
-          />
+          >
+            <StaticImage
+              src="../images/SAJLATn.png"
+              alt="برنامج سجلات"
+              placeholder="blurred"
+              width={200}
+              height={200}
+            />
+          </Box>
         </Link>
         <Link to="podcast/بودكاست-تركات-جامعية">
           <Box
             padding={4}
             borderRadius={12}
-            as="img"
-            src={logo5}
             bg={colorMode === "dark" ? "whitesmoke" : "transparent"}
             border="8px"
             borderColor="teal.400"
             boxSize="200px"
             objectFit="cover"
-          />
+          >
+            <StaticImage
+              src="../images/trikat.png"
+              alt="برنامج تركات"
+              placeholder="blurred"
+              width={200}
+              height={200}
+            />
+          </Box>
         </Link>
         <Link to="podcast/بودكاست-ساندويتش-التخصصات">
           <Box
             padding={4}
             borderRadius={12}
-            as="img"
-            src={logo6}
             bg={colorMode === "dark" ? "whitesmoke" : "transparent"}
             border="8px"
             borderColor="teal.400"
             boxSize="200px"
             objectFit="contain"
-          />
+          >
+            <StaticImage
+              src="../images/sandwich.png"
+              alt="برنامج ساندوش التخصصات"
+              placeholder="blurred"
+              width={200}
+              height={200}
+            />
+          </Box>
         </Link>
         <Box paddingY={16} borderRadius={12} as="h3" textAlign="center">
           والكثير من البرامج الأخرى🚀
