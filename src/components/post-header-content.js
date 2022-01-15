@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { chakra } from "@chakra-ui/react"
-import { StaticImage } from "gatsby-plugin-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import YouTubePlayer from "react-player/youtube"
 import SoundCloudPlayer from "react-player/soundcloud"
 
@@ -55,9 +55,11 @@ const PostHeaderContent = ({
     )
   }
   if (main_image.fluid) {
+    const img = main_image.url ? main_image.url : thumbnail_url
+    const images = getImage(img)
     return (
-      <StaticImage
-        src={main_image.url || thumbnail_url}
+      <GatsbyImage
+        image={images}
         alt={main_image_alt}
         placeholder="blurred"
         style={{
