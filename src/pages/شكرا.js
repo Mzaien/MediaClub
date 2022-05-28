@@ -7,7 +7,7 @@ export default function thanks() {
     <Layout>
       <Seo title="الانضمام للنادي" />
       <Heading as="h1" p={[4, 8]} textAlign="center" my={16}>
-        شكرا لك <span role="image">🌷</span> سنتواصل قريبا
+        شكرا لك <span>🌷</span> سنتواصل قريبا
       </Heading>
     </Layout>
   )

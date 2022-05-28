@@ -16,7 +16,7 @@ const PostRecommended = ({ title, postImage, postPath }) => {
       backgroundPosition="center"
       backgroundSize="cover"
       height={["6rem", null, "15rem"]}
-      d="flex"
+      display="flex"
       flexDir="column"
       justifyContent="flex-end"
       alignItems="flex-start"

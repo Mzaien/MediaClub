@@ -6,7 +6,7 @@ import { createMyCache } from "./src/utils/emation-cache"
 
 export const onRenderBody = ({ setPreBodyComponents }) => {
   setPreBodyComponents([
-    <ColorModeScript initialColorMode="dark" key="chakra-ui-no-flash" />,
+    <ColorModeScript type='cookie' initialColorMode="dark" key="chakra-ui-no-flash" />,
   ])
 }
 

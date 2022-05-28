@@ -57,7 +57,7 @@ const Navbar = () => {
       />
       <nav>
         <Container {...navContainerStyles}>
-          <List d="flex" alignItems="center" justifyContent="center">
+          <List display="flex" alignItems="center" justifyContent="center">
             <ListItem ml={5} key="home-page-1">
               <Link aria-label="الصفحة الرئيسية" to="/">
                 <Box boxSize="6rem">

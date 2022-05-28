@@ -39,7 +39,7 @@ const PostCard = ({ post, alternativeTag, isVertical }) => {
       <Box
         as={Link}
         to={postPath}
-        d="flex"
+        display="flex"
         flexDirection={isVertical ? "column" : ["column", null, "row"]}
       >
         <Box
@@ -48,14 +48,14 @@ const PostCard = ({ post, alternativeTag, isVertical }) => {
           pt={5}
           flexGrow="1"
           maxW={isVertical ? "full" : { base: "full", md: "60%" }}
-          d="flex"
+          display="flex"
           flexDirection="column"
         >
           <Box flexGrow="1">
             <Box
               as="small"
               mb={5}
-              d="inline-block"
+              display="inline-block"
               color={colorMode === "light" ? "gray.500" : "gray.300"}
             >
               {alternativeTag || tagData.content_type}

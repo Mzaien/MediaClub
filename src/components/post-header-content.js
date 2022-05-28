@@ -65,7 +65,6 @@ const PostHeaderContent = ({
         style={{
           borderRadius: "inherit",
           height: "100%",
-          borderRadius: "inherit",
         }}
       />
     )

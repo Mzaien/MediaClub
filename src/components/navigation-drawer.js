@@ -78,7 +78,7 @@ const NavDrawer = ({
           {!isDesktop && (
             <Container
               {...navContainerStyles}
-              d="inline-flex"
+              display="inline-flex"
               flexDir="row-reverse"
             >
               <IconButton
@@ -91,7 +91,7 @@ const NavDrawer = ({
             </Container>
           )}
           <DrawerBody py={5}>
-            <Box overflowY="auto" d="flex" flexDir="column" h="full">
+            <Box overflowY="auto" display="flex" flexDir="column" h="full">
               {!isDesktop && (
                 <VStack spacing={10} mb={10}>
                   {mainNavigationLinks.map((item, index) => (

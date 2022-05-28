@@ -32,7 +32,7 @@ const Layout = ({ children }) => {
     <>
       <Fonts />
       <Header siteTitle={title || `النادي الإعلامي`} />
-      <Box d="flex" flexDirection="column" minHeight="100vh">
+      <Box display="flex" flexDirection="column" minHeight="100vh">
         <Box as="main" flexGrow="1">
           <Container maxW="md" my={5}>
             {children}
